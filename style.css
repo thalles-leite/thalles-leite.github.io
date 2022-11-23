@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 2vh;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.main {
+    width: 100%;
+}
+
+.imagem {
+    height: 50vh;
+    margin-top: 10vh;
+}
+
+.mensagem {
+    text-align: center;
+    width: 50vh;
+    margin: 0 auto;
+}
+
+.lista_projetos {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.titulo_lista_projetos {
+    font-size: 3.5vh;
+    margin-bottom: 10px;
+}
