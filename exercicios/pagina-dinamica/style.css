@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+   
+}
+
+
+.header{
+    background-color: #010d23;
+    width: 100%;
+    height: 10vh;
+    color: white;
+    text-align: center;
+    padding-top: 3vh;
+    text-transform: uppercase;
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2% 2% 5%;
+    
+}
+
+.configuracao{
+    display: flex;
+    padding: 5px;
+    width: 100%;
+    background-color: #03223f;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: white;
+    white-space: nowrap;
+}
+.conf{
+    background-color: #038bbb;
+    padding: 10px;
+    text-align: center;
+    /* display: flex;
+    justify-content: space-evenly ; */
+    margin-top: 10px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.resetar{
+    padding-top: 15%;
+}
+.white, .black, .green, .blue,.yellow, .red{
+    width: 15px;
+    height: 14px;
+    border-radius: 500px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 4px;
+}
+.btnNorm{
+    color: black;
+    width: 40px;
+    margin-left: 4px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+.btnText{
+    color: black;
+    min-width: 40px;
+    margin-left: 4px;
+    margin-right: 4px;
+    border: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.black{
+    background-color: black;
+}
+.red{
+    background-color: red;
+}
+.green{
+    background-color: green;
+}
+.blue{
+    background-color: blue;
+}
+.yellow{
+    background-color: yellow;
+}
+
+.texto{
+    width: 100%;
+    background-color: rgba(199, 199, 199, 0.288);
+    padding: 20px;
+    border-radius: 20px;
+}
+.texto h1{
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    background-color: #010d23;
+    width: 100%;
+    height: 8vh;
+    color: white;
+    text-align: center;
+    padding-top: 1.5vh;
+    
+}
+.resetar{
+    background-color: transparent;
+}
+
+.fa-refresh{
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+  }
+  
