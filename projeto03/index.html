@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+
+    <!-- Importando fontes: -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1 id="title">Paleta de Cores.</h1>
+    </header>
+    <aside class="ferramentas">
+        <div class="paletaCores">
+            <h4 class="tituloPaleta">Paleta de Cores</h4>
+            <section id="color-palette" class="color-palette">
+            </section>
+            <button id="button-random-color" class="button-random-color">Cores aleatórias</button>
+        </div>
+    </aside>
+    <div class="ferBotoes">
+        <div class="conf">
+            <div class="mainInputs">
+                <button id="clear-board" class="clear-board">Limpar</button>
+            </div>
+            <div class="mainInputs">
+                <h4 class="tituloPaleta">Tamanho do Quadro</h4>
+                <div class="inputs">
+                    <input type="number" name="board-size" id="board-size" class="board-size" min="1" placeholder="1"
+                        value="">
+                    <button id="generate-board" class="generate-board">VQV</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="main">
+        <section id="pixel-board" class="pixel-board">
+
+        </section>
+    </main>
+    <footer class="footer">
+        <p>Desenvolvido por <a href="https://www.linkedin.com/in/thallesleite/" target="_blank"
+                rel="noopener noreferrer">
+                Thalles Leite. </a>
+            <a href="https://www.linkedin.com/in/thallesleite/" target="_blank" rel="noopener noreferrer"><i
+                    class="fa fa-linkedin fa"></i></a>
+            <a href="https://github.com/thalles-leite" target="_blank" rel="noopener noreferrer"><i
+                    class="fa fa-github fa"></i></a>
+        </p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

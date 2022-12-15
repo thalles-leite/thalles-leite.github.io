@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200&display=swap') ;
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Fira Sans, sans-serif;
+}
+
+body {
+  background-color: #edede9;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.header {
+  display: flex;
+  color: white;
+  background-color: #386641;
+  min-height: 8vh;
+  justify-content: center;
+  align-items: center;
+  min-width: 300px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ferramentas {
+  width: 100%;
+  margin: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.paletaCores {
+  text-align: center;
+  background-color: #acacac;
+  color: white;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px black;
+}
+
+.ferramentas h3 {
+  margin: 15px;
+}
+
+.ferramentas hr {
+  margin-bottom: 10px;
+}
+
+.tituloPaleta {
+  text-align: center;
+  color: white;
+  margin-bottom: 5px;
+  font-size: small;
+}
+
+.color-palette {
+  display: flex;
+  justify-content: center;
+  flex-flow: row;
+}
+
+/* .color-palette .botoes {
+} */
+
+.color {
+  margin: 2px;
+  border: 1px solid black;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.footer {
+  position: fixed;
+  display: flex;
+  color: white;
+  background-color: #386641;
+  min-height: 8vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+}
+
+.button-random-color {
+  background-color: #e7e7e7;
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  color: black;
+  border-radius: 5px;
+  font-size: small;
+  cursor: pointer;
+  border: none;
+  font-family: monospace;
+}
+
+.pixel-board {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  min-width: 300px;
+  margin-top: 10px;
+}
+
+.linha {
+  display: flex;
+  background-color: #ececdd;
+  justify-content: center;
+  width: 100%;
+}
+
+.pixel {
+  display: inline-block;
+  background-color: white;
+  border: 1px solid;
+  caret-color: red;
+  cursor: pointer;
+}
+
+.ferBotoes {
+  padding: 5px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.conf {
+  display: flex;
+  flex-direction: row;
+  border-radius: 30px;
+}
+
+.board-size {
+  width: 0;
+  flex-grow: 2;
+  text-align: center;
+  border: none;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: row;
+  height: 25px;
+  margin: 2px;
+}
+
+.generate-board {
+  flex-grow: 2;
+  margin-left: 5px;
+  background-color: #e7e7e7;
+  color: black;
+  border-radius: 5px;
+  font-size: small;
+  cursor: pointer;
+  border: 1px solid white;
+  font-family: monospace;
+}
+
+.mainInputs {
+  background-color: #c7c7c5;
+  border-radius: 10px;
+  padding: 8px 20px;
+  margin-right: 3px;
+}
+
+
+.clear-board {
+  height: 100%;
+  border-radius: 500px;
+  padding: 10px;
+  border: 1px solid white;
+  cursor: pointer;
+}
