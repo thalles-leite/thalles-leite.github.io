@@ -4,13 +4,14 @@
 // variáveis
 let corLocal = {};
 let pixelLocal = {};
-const quantidadeDeBotoes = 4;
+let quantidadeDeBotoes = 4;
 let ladosQuadro = 5;
 
 // LocalStorage
 const objCor = localStorage.getItem('colorPalette');
 const pixelBoard = localStorage.getItem('pixelBoard');
 const boardSize = localStorage.getItem('boardSize');
+const qtdBotoes = localStorage.getItem('qtdBotoes');
 
 if (objCor) {
   corLocal = JSON.parse(objCor);
@@ -23,9 +24,12 @@ if (pixelBoard) {
 if (boardSize) {
   ladosQuadro = parseInt(boardSize, 10);
 }
+if (qtdBotoes) {
+  quantidadeDeBotoes = parseInt(qtdBotoes, 10);
+}
 
 // elementos
-const botoesPaleta = document.getElementsByClassName('color');
+let botoesPaleta = document.getElementsByClassName('color');
 const divBotoesPaleta = document.querySelector('.color-palette');
 const botaoCoresAleatorias = document.querySelector('.button-random-color');
 const quadroPixels = document.querySelector('.pixel-board');
@@ -33,6 +37,8 @@ let pixels = document.getElementsByClassName('pixel');
 const botaoLimpar = document.querySelector('.clear-board');
 const botaoVqv = document.querySelector('.generate-board');
 let campoTamanho = document.querySelector('.board-size');
+let botaoQtdCores = document.querySelector('#generate-palette');
+const campoQtdCores = document.querySelector('#palette-size');
 
 // Funções
 const gerarCores = () => {
@@ -59,8 +65,12 @@ const gerarBotoesPaleta = (quantidade) => {
 };
 
 const preencherPaleta = () => {
+  botoesPaleta = document.getElementsByClassName('color');
+  console.log(botoesPaleta);
+  console.log(corLocal);
+  console.log(Object.keys(corLocal).length);
+  console.log(botoesPaleta.length - 1);
   for (let index = 1; index < botoesPaleta.length; index += 1) {
-    // Se o tamanho do array corLocal for diferente da quantidade de botões.
     if (Object.keys(corLocal).length !== botoesPaleta.length - 1) {
       // Gera uma cor aleatória e atribui ao botão
       botoesPaleta[index].style.backgroundColor = gerarCores();
@@ -77,8 +87,8 @@ const preencherPaleta = () => {
 
 const botaoCores = () => {
   botaoCoresAleatorias.addEventListener('click', () => {
-    corLocal = {};
     localStorage.removeItem('colorPalette');
+    corLocal = {};
     preencherPaleta();
   });
 };
@@ -185,6 +195,15 @@ const tamanhoDoQuadro = () => {
   });
 };
 
+botaoQtdCores.addEventListener('click', () => {
+  localStorage.removeItem('colorPalette');
+  divBotoesPaleta.innerHTML = '';
+  corLocal = {};
+  gerarBotoesPaleta(campoQtdCores.value);
+  preencherPaleta();
+  localStorage.setItem('qtdBotoes', campoQtdCores.value);
+  console.log(localStorage);
+});
 //
 // document.querySelector('.board-size').value = ladosQuadro;
 

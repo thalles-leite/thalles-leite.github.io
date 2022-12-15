@@ -36,20 +36,22 @@ a {
 
 .ferramentas {
   width: 100%;
-  margin: 5px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .paletaCores {
+  width: 100%;
   text-align: center;
   background-color: #acacac;
   color: white;
-  padding: 5px;
+  padding: 5px 30px;
   margin: 10px;
   border-radius: 10px;
   box-shadow: 1px 1px 10px black;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .ferramentas h3 {
@@ -68,9 +70,11 @@ a {
 }
 
 .color-palette {
+  max-width: 100%;
   display: flex;
   justify-content: center;
   flex-flow: row;
+  flex-wrap: wrap;
 }
 
 /* .color-palette .botoes {
@@ -98,15 +102,15 @@ a {
 
 .button-random-color {
   background-color: #e7e7e7;
-  width: 100%;
+  max-width: 100px;
   padding: 5px;
-  margin-top: 5px;
   color: black;
   border-radius: 5px;
   font-size: small;
   cursor: pointer;
   border: none;
   font-family: monospace;
+  flex-grow: 1;
 }
 
 .pixel-board {
@@ -134,15 +138,18 @@ a {
 
 .ferBotoes {
   padding: 5px;
-  margin-top: 15px;
   display: flex;
   justify-content: center;
 }
 
 .conf {
+  width: 100%;
   display: flex;
+  padding: 10px;
   flex-direction: row;
-  border-radius: 30px;
+  align-items: center;
+  justify-content: center;
+  background-color: #88888818;
 }
 
 .board-size {
@@ -173,16 +180,19 @@ a {
 
 .mainInputs {
   background-color: #c7c7c5;
+  border: 1px solid black;
   border-radius: 10px;
-  padding: 8px 20px;
-  margin-right: 3px;
+  padding: 8px 10px;
+  margin-right: 5px;
 }
 
 
 .clear-board {
-  height: 100%;
-  border-radius: 500px;
-  padding: 10px;
+  margin-right: 10px;
+  color: white;
   border: 1px solid white;
   cursor: pointer;
+  padding: 10px;
+  background-color: #c7c7c5;
+  max-height: 50px;
 }
