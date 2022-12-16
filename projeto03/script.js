@@ -40,6 +40,7 @@ let campoTamanho = document.querySelector('.board-size');
 let botaoQtdCores = document.querySelector('#generate-palette');
 const campoQtdCores = document.querySelector('#palette-size');
 
+quadroPixels.style.height = `${50}vh`;
 // Funções
 const gerarCores = () => {
   let rCor = 'rgb(';
@@ -66,10 +67,6 @@ const gerarBotoesPaleta = (quantidade) => {
 
 const preencherPaleta = () => {
   botoesPaleta = document.getElementsByClassName('color');
-  console.log(botoesPaleta);
-  console.log(corLocal);
-  console.log(Object.keys(corLocal).length);
-  console.log(botoesPaleta.length - 1);
   for (let index = 1; index < botoesPaleta.length; index += 1) {
     if (Object.keys(corLocal).length !== botoesPaleta.length - 1) {
       // Gera uma cor aleatória e atribui ao botão
@@ -94,16 +91,18 @@ const botaoCores = () => {
 };
 
 const gerarPixels = () => {
-  // const lateralPixel = ((quadroPixels.getBoundingClientRect().height) / ladosQuadro) * 0.8;
+  const lateralPixel = ((quadroPixels.getBoundingClientRect().height) / ladosQuadro);
+  console.log(typeof (lateralPixel));
+  console.log((quadroPixels.getBoundingClientRect()));
   for (let i = 0; i < ladosQuadro; i += 1) {
     const linha = document.createElement('div');
     linha.classList.add('linha');
     for (let j = 0; j < ladosQuadro; j += 1) {
       const numeroDoPixel = j + (ladosQuadro * i);
       const pixel = document.createElement('div');
+      pixel.style.width = `${lateralPixel}px`;
+      pixel.style.height = `${lateralPixel}px`;
       pixel.classList.add('pixel');
-      pixel.style.width = `${40}px`;
-      pixel.style.height = `${40}px`;
       if (pixelLocal[numeroDoPixel]) {
         pixel.style.backgroundColor = pixelLocal[numeroDoPixel];
       } else {
