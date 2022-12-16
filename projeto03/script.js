@@ -64,6 +64,9 @@ const gerarBotoesPaleta = (quantidade) => {
       botao.classList.add('selected');
       botao.style.backgroundColor = 'rgb(0,0,0)';
     }
+    if (index === 1) {
+      botao.style.backgroundColor = 'rgb(254,254,254)';
+    }
     botao.classList.add('color');
     divBotoesPaleta.appendChild(botao);
   }
@@ -71,9 +74,9 @@ const gerarBotoesPaleta = (quantidade) => {
 
 const preencherPaleta = () => {
   botoesPaleta = document.getElementsByClassName('color');
-  for (let index = 1; index < botoesPaleta.length; index += 1) {
+  for (let index = 2; index < botoesPaleta.length; index += 1) {
     if (!botoesPaleta[index].classList.contains('borracha')) {
-      if (Object.keys(corLocal).length !== botoesPaleta.length - 2) {
+      if (Object.keys(corLocal).length !== botoesPaleta.length - 3) {
         // Gera uma cor aleatória e atribui ao botão
         botoesPaleta[index].style.backgroundColor = gerarCores();
         // Adiciona essa cor ao array;
@@ -111,8 +114,11 @@ const gerarPixels = () => {
       pixel.classList.add('pixel');
       if (pixelLocal[numeroDoPixel]) {
         pixel.style.backgroundColor = pixelLocal[numeroDoPixel];
+        if (pixelLocal[numeroDoPixel] !== 'rgb(255, 255, 255)') {
+          pixel.style.borderColor = pixelLocal[numeroDoPixel];
+        }
       } else {
-        pixel.style.backgroundColor = 'white';
+        pixel.style.backgroundColor = 'rgb(255,255,255)';
       }
       linha.appendChild(pixel);
     }
@@ -161,7 +167,7 @@ const selecionar = () => {
 
 const limpar = () => {
   for (const pixel of pixels) {
-    pixel.style.backgroundColor = 'white';
+    pixel.style.backgroundColor = 'rgb(255,255,255)';
     pixel.style.borderColor = 'black';
   }
   pixelLocal = {};
