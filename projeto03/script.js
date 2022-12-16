@@ -100,7 +100,7 @@ const botaoCores = () => {
 };
 
 const gerarPixels = () => {
-  const lateralPixel = ((quadroPixels.getBoundingClientRect().height) / ladosQuadro);
+  const lateralPixel = ((quadroPixels.getBoundingClientRect().height) / ladosQuadro) * 0.8;
   console.log(dCorSelecionada);
   for (let i = 0; i < ladosQuadro; i += 1) {
     const linha = document.createElement('div');
