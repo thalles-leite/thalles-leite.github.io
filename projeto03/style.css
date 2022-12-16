@@ -63,8 +63,7 @@ a {
 }
 
 .tituloPaleta {
-  text-align: center;
-  color: white;
+  text-align: center;  
   margin-bottom: 5px;
   font-size: small;
 }
@@ -116,9 +115,9 @@ a {
 .pixel-board {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  min-width: 300px;
+  max-width: 80%;
   margin-top: 10px;
+  box-shadow: 4px 4px 3px;
 }
 
 .linha {
@@ -180,19 +179,20 @@ a {
 
 .mainInputs {
   background-color: #c7c7c5;
-  border: 1px solid black;
   border-radius: 10px;
   padding: 8px 10px;
-  margin-right: 5px;
+  margin-right: 10px;
+  box-shadow: 1px 2px 3px;
 }
 
 
 .clear-board {
   margin-right: 10px;
-  color: white;
-  border: 1px solid white;
+  color: black;
   cursor: pointer;
   padding: 10px;
   background-color: #c7c7c5;
   max-height: 50px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px;
 }
