@@ -203,6 +203,7 @@ const tamanhoDoQuadro = () => {
 
 botaoQtdCores.addEventListener('click', () => {
   if (campoQtdCores > 0) {
+    campoQtdCores.style.border = 'none';
     localStorage.removeItem('colorPalette');
     divBotoesPaleta.innerHTML = '';
     corLocal = {};
@@ -212,7 +213,6 @@ botaoQtdCores.addEventListener('click', () => {
     localStorage.setItem('qtdBotoes', campoQtdCores.value);
   } else {
     alert('Defina uma quantidade de cores por favor.');
-    campoQtdCores.style.border = '2px solid red';
     campoQtdCores.focus();
   }
 });
