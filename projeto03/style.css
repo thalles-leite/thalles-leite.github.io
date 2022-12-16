@@ -10,6 +10,7 @@
 
 body {
   background-color: #edede9;
+  height: 100vh;
 }
 
 a {
@@ -30,8 +31,8 @@ a {
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  height: 70vh;
 }
 
 .ferramentas {
@@ -115,7 +116,6 @@ a {
 .pixel-board {
   display: flex;
   flex-direction: column;
-  max-width: 80%;
   margin-top: 2px;
 }
 

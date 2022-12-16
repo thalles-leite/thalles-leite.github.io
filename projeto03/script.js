@@ -44,7 +44,7 @@ const campoQtdCores = document.querySelector('#palette-size');
 const dCorSelecionada = document.querySelector('.dCorSelecionada');
 const audioClick = document.querySelector('#audioClick');
 
-quadroPixels.style.height = `${50}vh`;
+quadroPixels.style.height = `${60}vh`;
 // Funções
 const gerarCores = () => {
   let rCor = 'rgb(';
