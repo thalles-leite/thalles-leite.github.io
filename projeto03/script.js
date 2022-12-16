@@ -73,7 +73,7 @@ const preencherPaleta = () => {
   botoesPaleta = document.getElementsByClassName('color');
   for (let index = 1; index < botoesPaleta.length; index += 1) {
     if (!botoesPaleta[index].classList.contains('borracha')) {
-      if (Object.keys(corLocal).length !== botoesPaleta.length - 1) {
+      if (Object.keys(corLocal).length !== botoesPaleta.length - 2) {
         // Gera uma cor aleatória e atribui ao botão
         botoesPaleta[index].style.backgroundColor = gerarCores();
         // Adiciona essa cor ao array;
@@ -162,6 +162,7 @@ const selecionar = () => {
 const limpar = () => {
   for (const pixel of pixels) {
     pixel.style.backgroundColor = 'white';
+    pixel.style.borderColor = 'black';
   }
   pixelLocal = {};
   localStorage.removeItem('pixelBoard');
@@ -206,7 +207,7 @@ const tamanhoDoQuadro = () => {
 };
 
 botaoQtdCores.addEventListener('click', () => {
-  if (campoQtdCores > 0) {
+  if (campoQtdCores.value > 0) {
     campoQtdCores.style.border = 'none';
     localStorage.removeItem('colorPalette');
     divBotoesPaleta.innerHTML = '';
