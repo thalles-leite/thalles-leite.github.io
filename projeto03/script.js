@@ -42,6 +42,7 @@ let campoTamanho = document.querySelector('.board-size');
 const botaoQtdCores = document.querySelector('#generate-palette');
 const campoQtdCores = document.querySelector('#palette-size');
 const dCorSelecionada = document.querySelector('.dCorSelecionada');
+const audioClick = document.querySelector('#audioClick');
 
 quadroPixels.style.height = `${50}vh`;
 // Funções
@@ -135,6 +136,11 @@ const pintar = () => {
   for (const pixel of pixels) {
     pixel.addEventListener('click', () => {
       pixel.style.backgroundColor = corSelecionada.style.backgroundColor;
+      pixel.style.borderColor = corSelecionada.style.backgroundColor;
+      console.log(audioClick);
+      audioClick.pause();
+      audioClick.currentTime = 0;
+      audioClick.play();
       salvarAcao();
     });
   }
