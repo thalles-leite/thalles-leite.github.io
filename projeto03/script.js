@@ -205,8 +205,8 @@ botaoQtdCores.addEventListener('click', () => {
   console.log(localStorage);
 });
 //
-// document.querySelector('.board-size').value = ladosQuadro;
-
+document.querySelector('.board-size').placeholder = ladosQuadro;
+document.querySelector('#palette-size').placeholder = quantidadeDeBotoes;
 // Chamada das funções
 gerarBotoesPaleta(quantidadeDeBotoes);
 preencherPaleta();
