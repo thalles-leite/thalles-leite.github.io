@@ -195,3 +195,9 @@ a {
   border-radius: 10px;
   box-shadow: 1px 1px 3px;
 }
+
+.dCorSelecionada {
+  border: 2px solid black;
+  margin-right: 10px;
+  border-radius: 500px;
+}

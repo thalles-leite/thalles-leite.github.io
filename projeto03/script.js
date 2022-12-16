@@ -1,3 +1,5 @@
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable no-loop-func */
 /* eslint-disable sonarjs/cognitive-complexity */
 /* eslint-disable max-lines-per-function */
 /* eslint-disable no-restricted-syntax */
@@ -37,8 +39,9 @@ let pixels = document.getElementsByClassName('pixel');
 const botaoLimpar = document.querySelector('.clear-board');
 const botaoVqv = document.querySelector('.generate-board');
 let campoTamanho = document.querySelector('.board-size');
-let botaoQtdCores = document.querySelector('#generate-palette');
+const botaoQtdCores = document.querySelector('#generate-palette');
 const campoQtdCores = document.querySelector('#palette-size');
+const dCorSelecionada = document.querySelector('.dCorSelecionada');
 
 quadroPixels.style.height = `${50}vh`;
 // Funções
@@ -92,8 +95,9 @@ const botaoCores = () => {
 
 const gerarPixels = () => {
   const lateralPixel = ((quadroPixels.getBoundingClientRect().height) / ladosQuadro);
-  console.log(typeof (lateralPixel));
-  console.log((quadroPixels.getBoundingClientRect()));
+  console.log(dCorSelecionada);
+  dCorSelecionada.style.width = `${lateralPixel}px`;
+  dCorSelecionada.style.height = `${lateralPixel}px`;
   for (let i = 0; i < ladosQuadro; i += 1) {
     const linha = document.createElement('div');
     linha.classList.add('linha');
@@ -102,6 +106,7 @@ const gerarPixels = () => {
       const pixel = document.createElement('div');
       pixel.style.width = `${lateralPixel}px`;
       pixel.style.height = `${lateralPixel}px`;
+
       pixel.classList.add('pixel');
       if (pixelLocal[numeroDoPixel]) {
         pixel.style.backgroundColor = pixelLocal[numeroDoPixel];
@@ -128,6 +133,7 @@ const salvarAcao = () => {
 
 const pintar = () => {
   const corSelecionada = document.querySelector('.selected');
+  dCorSelecionada.style.backgroundColor = corSelecionada.style.backgroundColor;
   for (const pixel of pixels) {
     pixel.addEventListener('click', () => {
       pixel.style.backgroundColor = corSelecionada.style.backgroundColor;
@@ -135,10 +141,11 @@ const pintar = () => {
     });
   }
 };
+
 const selecionar = () => {
+  botoesPaleta = document.getElementsByClassName('color');
   for (const botao of botoesPaleta) {
     botao.addEventListener('click', (event) => {
-      // iteração para remover a classe select dos demais
       for (const botaoF of botoesPaleta) {
         botaoF.classList.remove('selected');
       }
@@ -200,6 +207,7 @@ botaoQtdCores.addEventListener('click', () => {
   corLocal = {};
   gerarBotoesPaleta(campoQtdCores.value);
   preencherPaleta();
+  selecionar();
   localStorage.setItem('qtdBotoes', campoQtdCores.value);
   console.log(localStorage);
 });
@@ -213,6 +221,6 @@ botaoCores();
 
 gerarPixels();
 pintar();
-selecionar();
 botaoLimparAcao();
 tamanhoDoQuadro();
+selecionar();
