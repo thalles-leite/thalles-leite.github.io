@@ -71,15 +71,17 @@ const gerarBotoesPaleta = (quantidade) => {
 const preencherPaleta = () => {
   botoesPaleta = document.getElementsByClassName('color');
   for (let index = 1; index < botoesPaleta.length; index += 1) {
-    if (Object.keys(corLocal).length !== botoesPaleta.length - 1) {
-      // Gera uma cor aleatória e atribui ao botão
-      botoesPaleta[index].style.backgroundColor = gerarCores();
-      // Adiciona essa cor ao array;
-      corLocal[index] = (botoesPaleta[index].style.backgroundColor);
-      // se o tamanho for igual
-    } else {
-      // atribui a cor do array ao botão.
-      botoesPaleta[index].style.backgroundColor = corLocal[index];
+    if (!botoesPaleta[index].classList.contains('borracha')) {
+      if (Object.keys(corLocal).length !== botoesPaleta.length - 1) {
+        // Gera uma cor aleatória e atribui ao botão
+        botoesPaleta[index].style.backgroundColor = gerarCores();
+        // Adiciona essa cor ao array;
+        corLocal[index] = (botoesPaleta[index].style.backgroundColor);
+        // se o tamanho for igual
+      } else {
+        // atribui a cor do array ao botão.
+        botoesPaleta[index].style.backgroundColor = corLocal[index];
+      }
     }
   }
   localStorage.setItem('colorPalette', JSON.stringify(corLocal));
@@ -96,8 +98,6 @@ const botaoCores = () => {
 const gerarPixels = () => {
   const lateralPixel = ((quadroPixels.getBoundingClientRect().height) / ladosQuadro);
   console.log(dCorSelecionada);
-  dCorSelecionada.style.width = `${lateralPixel}px`;
-  dCorSelecionada.style.height = `${lateralPixel}px`;
   for (let i = 0; i < ladosQuadro; i += 1) {
     const linha = document.createElement('div');
     linha.classList.add('linha');
@@ -113,8 +113,6 @@ const gerarPixels = () => {
       } else {
         pixel.style.backgroundColor = 'white';
       }
-      // pixel.style.width = `${lateralPixel}px`;
-      // pixel.style.height = `${lateralPixel}px`;
       linha.appendChild(pixel);
     }
     quadroPixels.appendChild(linha);
