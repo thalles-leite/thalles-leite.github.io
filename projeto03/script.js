@@ -202,14 +202,19 @@ const tamanhoDoQuadro = () => {
 };
 
 botaoQtdCores.addEventListener('click', () => {
-  localStorage.removeItem('colorPalette');
-  divBotoesPaleta.innerHTML = '';
-  corLocal = {};
-  gerarBotoesPaleta(campoQtdCores.value);
-  preencherPaleta();
-  selecionar();
-  localStorage.setItem('qtdBotoes', campoQtdCores.value);
-  console.log(localStorage);
+  if (campoQtdCores > 0) {
+    localStorage.removeItem('colorPalette');
+    divBotoesPaleta.innerHTML = '';
+    corLocal = {};
+    gerarBotoesPaleta(campoQtdCores.value);
+    preencherPaleta();
+    selecionar();
+    localStorage.setItem('qtdBotoes', campoQtdCores.value);
+  } else {
+    alert('Defina uma quantidade de cores por favor.');
+    campoQtdCores.style.border = '2px solid red';
+    campoQtdCores.focus();
+  }
 });
 //
 document.querySelector('.board-size').placeholder = ladosQuadro;
