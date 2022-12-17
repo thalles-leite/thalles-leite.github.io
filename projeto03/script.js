@@ -140,7 +140,7 @@ const pintar = () => {
   const corSelecionada = document.querySelector('.selected');
   dCorSelecionada.style.backgroundColor = corSelecionada.style.backgroundColor;
   for (const pixel of pixels) {
-    pixel.addEventListener('touchmove', () => {
+    pixel.addEventListener('click', () => {
       pixel.style.backgroundColor = corSelecionada.style.backgroundColor;
       pixel.style.borderColor = corSelecionada.style.backgroundColor;
       console.log(audioClick);
