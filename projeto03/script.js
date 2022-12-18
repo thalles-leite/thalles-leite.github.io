@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable no-loop-func */
 /* eslint-disable sonarjs/cognitive-complexity */
@@ -43,8 +44,10 @@ const botaoQtdCores = document.querySelector('#generate-palette');
 const campoQtdCores = document.querySelector('#palette-size');
 const dCorSelecionada = document.querySelector('.dCorSelecionada');
 const audioClick = document.querySelector('#audioClick');
+const mainElement = document.querySelector('main');
+// const tamanhoBody = document.querySelector('body');
+// quadroPixels.style.height = 'fit-content';
 
-quadroPixels.style.height = `${60}vh`;
 // Funções
 const gerarCores = () => {
   let rCor = 'rgb(';
@@ -100,7 +103,9 @@ const botaoCores = () => {
 };
 
 const gerarPixels = () => {
-  const lateralPixel = ((quadroPixels.getBoundingClientRect().height) / ladosQuadro) * 0.8;
+  // const lateralPixel = ((quadroPixels.getBoundingClientRect().height) / ladosQuadro) * 0.8;
+  const widthPixel = ((mainElement.getBoundingClientRect().width) / ladosQuadro) * 0.99;
+  const heightPixel = ((mainElement.getBoundingClientRect().height) / ladosQuadro);
   console.log(dCorSelecionada);
   for (let i = 0; i < ladosQuadro; i += 1) {
     const linha = document.createElement('div');
@@ -108,9 +113,13 @@ const gerarPixels = () => {
     for (let j = 0; j < ladosQuadro; j += 1) {
       const numeroDoPixel = j + (ladosQuadro * i);
       const pixel = document.createElement('div');
-      pixel.style.width = `${lateralPixel}px`;
-      pixel.style.height = `${lateralPixel}px`;
-
+      if (heightPixel > widthPixel) {
+        pixel.style.width = `${widthPixel}px`;
+        pixel.style.height = `${widthPixel}px`;
+      } else {
+        pixel.style.width = `${heightPixel}px`;
+        pixel.style.height = `${heightPixel}px`;
+      }
       pixel.classList.add('pixel');
       if (pixelLocal[numeroDoPixel]) {
         pixel.style.backgroundColor = pixelLocal[numeroDoPixel];
@@ -125,6 +134,10 @@ const gerarPixels = () => {
     quadroPixels.appendChild(linha);
   }
 };
+window.addEventListener('resize', () => {
+  quadroPixels.innerHTML = '';
+  gerarPixels();
+});
 
 const salvarAcao = () => {
   for (let pixel = 0; pixel < pixels.length; pixel += 1) {
