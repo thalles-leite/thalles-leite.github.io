@@ -45,6 +45,8 @@ const campoQtdCores = document.querySelector('#palette-size');
 const dCorSelecionada = document.querySelector('.dCorSelecionada');
 const audioClick = document.querySelector('#audioClick');
 const mainElement = document.querySelector('main');
+const bocultar = document.querySelector('.bOcultar');
+const divConf = document.querySelector('.conf');
 // const tamanhoBody = document.querySelector('body');
 // quadroPixels.style.height = 'fit-content';
 
@@ -105,7 +107,7 @@ const botaoCores = () => {
 const gerarPixels = () => {
   // const lateralPixel = ((quadroPixels.getBoundingClientRect().height) / ladosQuadro) * 0.8;
   const widthPixel = ((mainElement.getBoundingClientRect().width) / ladosQuadro) * 0.99;
-  const heightPixel = ((mainElement.getBoundingClientRect().height) / ladosQuadro);
+  const heightPixel = ((mainElement.getBoundingClientRect().height) / ladosQuadro) * 0.85;
   console.log(dCorSelecionada);
   for (let i = 0; i < ladosQuadro; i += 1) {
     const linha = document.createElement('div');
@@ -241,6 +243,17 @@ botaoQtdCores.addEventListener('click', () => {
   }
 });
 //
+
+bocultar.addEventListener('click', () => {
+  console.log(divConf.style.display);
+  if (divConf.style.display === 'none') {
+    divConf.style.display = 'flex';
+  } else {
+    divConf.style.display = 'none';
+  }
+
+});
+
 document.querySelector('.board-size').placeholder = ladosQuadro;
 document.querySelector('#palette-size').placeholder = quantidadeDeBotoes;
 // Chamada das funções
