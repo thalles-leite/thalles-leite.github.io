@@ -251,9 +251,17 @@ bocultar.addEventListener('click', () => {
   } else {
     divConf.style.display = 'none';
   }
-
 });
 
+
+bocultar.addEventListener('touch', () => {
+  console.log(divConf.style.display);
+  if (divConf.style.display === 'none') {
+    divConf.style.display = 'flex';
+  } else {
+    divConf.style.display = 'none';
+  }
+});
 document.querySelector('.board-size').placeholder = ladosQuadro;
 document.querySelector('#palette-size').placeholder = quantidadeDeBotoes;
 // Chamada das funções
