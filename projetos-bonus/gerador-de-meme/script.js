@@ -20,7 +20,6 @@ canvas.height = 400;
 
 const atualizarTexto = () => {
   campoTexto.addEventListener('keyup', (event) => {
-    console.log(event.target.value);
     textoMeme.innerText = event.target.value;
   });
 };

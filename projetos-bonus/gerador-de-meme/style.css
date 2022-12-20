@@ -65,7 +65,7 @@ footer a {
   justify-items: center;
   align-items: center;
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 .meme-image-container {
@@ -90,8 +90,8 @@ footer a {
   color: black;
   border: 1px solid white;
   border-radius: 10px;
-  width: 50vh;
-  max-width: 400px;
+  width : 55vh;
+  max-width: 500px;
   min-width: 320px;
   max-height: 400px;
   padding: 20px;
@@ -177,7 +177,7 @@ footer a {
 
 .tituloLista {
   color: black;
-  margin: 10;
+  margin: 15px;
   text-align: center;
 }
 
