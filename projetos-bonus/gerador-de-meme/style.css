@@ -58,7 +58,7 @@ footer a {
 
 
 .memeEditor {
-  background-color: rgb(224 , 200 , 247);
+  background-color: #bdb9f5;
   display: flex;
   flex-flow: wrap row;
   justify-content: center;
