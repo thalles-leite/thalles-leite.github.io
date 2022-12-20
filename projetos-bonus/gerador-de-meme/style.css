@@ -58,7 +58,7 @@ footer a {
 
 
 .memeEditor {
-  background-color: #bdb9f5;
+  background-color: rgb(189 , 185 , 245);
   display: flex;
   flex-flow: wrap row;
   justify-content: center;
@@ -122,9 +122,9 @@ footer a {
 }
 
 .botoes button {
-  width: 10vw;
+  width: 8vw;
   height: 5vh;
-  max-width: 100px;
+  max-width: 80px;
   max-height: 50px;
   border: none;
   cursor: pointer;
@@ -142,9 +142,14 @@ footer a {
   background-color: green;
 }
 
+.black {
+  background-color: black;
+}
+
 .text-input {
   text-transform: uppercase;
 }
+
 
 .meme-image {
   z-index: 1;

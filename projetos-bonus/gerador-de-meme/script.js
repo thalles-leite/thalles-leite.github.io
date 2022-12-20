@@ -67,6 +67,7 @@ const baixarImagem = () => {
 const botaoFire = () => '3px dashed rgb(255,0,0)';
 const botaoWater = () => '5px double rgb(0,0,255)';
 const botaoEarth = () => '6px groove rgb(0,128,0)';
+const botaoBlack = () => '2px solid rgb(0,0,0)';
 
 const atualizarBorda = () => {
   for (const botoes of botoesCor) {
@@ -77,6 +78,8 @@ const atualizarBorda = () => {
         containerImage.style.border = botaoWater();
       } else if (event.target.classList.contains('earth')) {
         containerImage.style.border = botaoEarth();
+      } else if (event.target.classList.contains('black')) {
+        containerImage.style.border = botaoBlack();
       }
     });
   }
