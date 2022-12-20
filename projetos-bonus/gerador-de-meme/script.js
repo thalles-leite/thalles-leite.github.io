@@ -9,6 +9,12 @@ const inputImagem = document.getElementById('meme-insert');
 const botoesCor = document.querySelectorAll('.bcor');
 const containerImage = document.querySelector('.meme-image-container');
 const imagensPreCarregadas = document.querySelectorAll('.boxImage');
+const botaoDownload = document.querySelector('#download');
+const canvas = document.createElement('canvas');
+const context = canvas.getContext('2d');
+
+canvas.width = 400;
+canvas.height = 400;
 
 // Funções
 
@@ -19,12 +25,42 @@ const atualizarTexto = () => {
   });
 };
 
+/* const atualizarImagem = () => {
+  inputImagem.addEventListener('change', () => {
+    const imagemCarregada = inputImagem.files[0];
+    const urlImagem = URL.createObjectURL(imagemCarregada);
+    imagemMeme.src = urlImagem;
+    // imagemMeme.src = imagemCarregada;
+  });
+}; */
+
 const atualizarImagem = () => {
   inputImagem.addEventListener('change', () => {
     const imagemCarregada = inputImagem.files[0];
     const urlImagem = URL.createObjectURL(imagemCarregada);
     imagemMeme.src = urlImagem;
     // imagemMeme.src = imagemCarregada;
+  });
+};
+
+const baixarImagem = () => {
+  botaoDownload.addEventListener('click', () => {
+    context.drawImage(imagemMeme, 0, 0, canvas.width, canvas.height);
+    context.font = ('30px "impact"');
+    context.fillStyle = 'white';
+    const textWidth = context.measureText(textoMeme.innerText).width;
+    const x = (canvas.width - textWidth) / 2;
+    const y = canvas.height - 20;
+    context.shadowColor = 'black';
+    context.shadowOffsetX = 5;
+    context.shadowOffsetY = 5;
+    context.shadowBlur = 5;
+    context.fillText(textoMeme.innerText, x, y);
+    const imageDataUrl = canvas.toDataURL();
+    const link = document.createElement('a');
+    link.href = imageDataUrl;
+    link.download = `${textoMeme.innerText}.png`;
+    link.click();
   });
 };
 
@@ -55,6 +91,7 @@ const imagensCarregadas = () => {
   }
 };
 
+baixarImagem();
 imagensCarregadas();
 atualizarBorda();
 atualizarTexto();
