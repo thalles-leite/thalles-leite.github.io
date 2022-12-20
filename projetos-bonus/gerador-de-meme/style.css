@@ -160,6 +160,12 @@ footer a {
   position: absolute;
   bottom: -20px;
   width: 100%;
+}
+
+.download {
+  color: gray;
+  background: rgba(76 , 175 , 80 , 0);
+  border: none;
   cursor: pointer;
 }
 
