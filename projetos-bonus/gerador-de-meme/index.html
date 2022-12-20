@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1 class="titulo">Meme Generator</h1>
+    </header>
+    <main>
+        <section class="memeEditor">
+            <div class="meme-image-container" id="meme-image-container">
+                <section class="meme-text" id="meme-text"></section>
+                <section>
+                    <img src="./imgs/memes/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.webp"
+                        alt="imagem" srcset="" id="meme-image" class="meme-image">
+                </section>
+            </div>
+            <div class="memeData">
+
+                <section>
+                    <label for="text-input">Insira o texto:</label>
+                    <input type="text" class="text-input" id="text-input" maxlength="60">
+                </section>
+                <section>
+                    <label for="meme-insert">Selecione a imagem:</label>
+                    <input type="file" name="meme-insert" id="meme-insert" class="meme-insert">
+                </section>
+                <section class="corBorda">
+                    <p>Cor da borda:</p>
+                    <section class="botoes">
+                        <button id="fire" class="fire bcor"></button>
+                        <button id="water" class="water bcor"></button>
+                        <button id="earth" class="earth bcor"></button>
+                    </section>
+                </section>
+
+            </div>
+        </section>
+        <section class="listaMemes">
+            <h4 class="tituloLista">Mais imagens:</h4>
+            <section class="imagensMeme">
+                <section class="boxImage">
+                    <img src="./imgs/meme1.png" alt="" srcset="" id="meme-1">
+                </section>
+                <section class="boxImage">
+                    <img src="./imgs/meme2.png" alt="" srcset="" id="meme-2">
+                </section>
+                <section class="boxImage">
+                    <img src="./imgs/meme3.png" alt="" srcset="" id="meme-3">
+                </section>
+                <section class="boxImage">
+                    <img src="./imgs/meme4.png" alt="" srcset="" id="meme-4">
+                </section>
+            </section>
+        </section>
+    </main>
+    <footer>
+        a
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
