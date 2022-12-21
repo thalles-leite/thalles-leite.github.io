@@ -1,0 +1,84 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  height: 100vh;
+  font-family: monospace;
+  background-color: black;
+}
+
+main {
+  padding: 20px;
+  width: 70vw;
+  background-color: white;
+  border-radius: 12px;
+}
+
+.titulo {
+  text-align: center;
+  color: rgb(46, 45, 45);
+}
+
+.codigoRGB {
+  font-size: 20px;
+  margin-top: 5px;
+  background-color: rgb(182, 182, 182);
+  text-align: center;
+  padding: 10px;
+  box-shadow: 2px 2px 5px black;
+}
+
+.circulos {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+}
+
+.ball {
+  border-radius: 500px;
+  width: 8vw;
+  height: 8vw;
+  border: 1px solid black;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.secAnswer {
+  margin-top: 15px;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(201, 201, 200, 0.637);
+  border-radius: 5px;
+}
+
+#answer {
+  padding: 2px;
+  color: rgb(61, 60, 60);
+  font-size: 1.5em;
+}
+
+.secReset {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+#reset-game {
+  background-color: rgb(182, 182, 182);
+  border: none;
+  padding: 10px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.placar {
+  margin-bottom: 10px;
+}
