@@ -19,12 +19,38 @@ const valueLife = document.getElementById('vidas');
 const campoLog = document.getElementById('logList');
 const campoRank = document.getElementById('rank');
 const botaoReset = document.querySelector('.reset-rank');
+const somSucesso = document.querySelector('#sucesso');
+const somErro = document.querySelector('#erro');
+const somGameOver = document.querySelector('#gameOver');
+const todosOsSons = document.getElementsByTagName('audio');
+
 
 textAnswer.innerText = 'Escolha uma cor';
 valueScore.innerText = placar;
 valueLife.innerText = vidas;
 
 // Funções
+const pararSons = () => {
+  for (const iterator of todosOsSons) {
+    iterator.pause();
+    iterator.currentTime = '0';
+  }
+}
+
+const sucessoPlay = () => {
+  pararSons();
+  somSucesso.play();
+}
+
+const erroPlay = () => {
+  pararSons();
+  somErro.play();
+}
+
+const somGameOverPlay = () => {
+  pararSons();
+  somGameOver.play();
+}
 
 // Função que gera uma cor no formato RGB de forma aleatória.
 const corAleatoria = () => {
@@ -68,6 +94,7 @@ const verificarCor = () => {
       console.log(nGabarito + 1);
       if (circulo.style.backgroundColor.slice(3) === corGabarito) {
         textAnswer.innerText = 'Acertou!';
+        sucessoPlay();
         fLog('Acertou! +3pts')
         placar += 3;
         valueScore.innerText = placar;
@@ -77,10 +104,12 @@ const verificarCor = () => {
 
       } else {
         textAnswer.innerText = 'Errou! Tente novamente!';
+        erroPlay();
         fLog('Errou! -1 vida')
         vidas -= 1;
         valueLife.innerText = vidas;
         if (vidas <= 0) {
+          somGameOverPlay();
           fLog(`Fim de jogo! ${placar}pts`)
           vidas = 0;
           valueLife.innerText = vidas;
