@@ -20,7 +20,7 @@ main{
   justify-content: right;
   justify-items: center;
   align-items: center;
-  height: 100vh;
+  height: 98vh;
 }
 
 .game {
@@ -119,7 +119,7 @@ main{
   flex-flow: column;
   flex-direction: column-reverse;
   font-size: 10px;
-  height: 96vh;
+  height: 94vh;
   overflow-y: auto;
 
 }
@@ -134,7 +134,6 @@ main{
   border-bottom: 1px solid rgba(32, 32, 32, 0.493);
 }
 .containerHistorico {
-  height: 100vh;
   width: 20vw;
   border-left: 1px solid rgb(32, 32, 32);
 }
@@ -164,7 +163,7 @@ main{
 
 }
 .historico {
-  height: 95vh;
+  height: 90vh;
   overflow: auto;
 }
 .rank {
@@ -197,7 +196,7 @@ main{
   }
   .log, .historico {
     width: 100%;
-    height: 10vh;
+    height: 90gitvh;
     margin: 10px 0;
   }
   
@@ -241,7 +240,7 @@ main{
     border: 1px solid white;
     border-bottom: none;
     margin-left: -1px;
-    margin-top: -2.8vh;
+    margin-top: -4vh;
   }
   .recursos{
     font-size: 1.5em;

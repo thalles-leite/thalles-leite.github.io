@@ -9,7 +9,7 @@ const rankingLocal = JSON.parse(localStorage.getItem('rank'));
 if (rankingLocal) {
   player = rankingLocal;
 }
-
+const boody = document.querySelector('body');
 const divCirculo = document.querySelector('.circulos');
 const circulos = document.getElementsByClassName('ball');
 const textAnswer = document.getElementById('answer');
@@ -62,6 +62,12 @@ const corAleatoriaSorteada = () => {
 
 // Função para verificar se clicou na cor certo.
 const verificarCor = () => {
+  const resposta = document.createElement('p');
+  resposta.innerText = nGabarito + 1;
+  resposta.style.color = 'gray';
+  resposta.style.position = 'absolute';
+  resposta.style.fontSize = '0.7em'
+  boody.appendChild(resposta);
   Object.values(circulos).forEach((circulo) => {
     circulo.addEventListener('click', () => {
       console.log(nGabarito + 1);
@@ -112,6 +118,7 @@ const resetGame = () => {
 };
 
 const começar = () => {
+
   textAnswer.innerText = 'Escolha uma cor';
   gerarBotoesCores();
   corAleatoriaSorteada();
@@ -135,45 +142,48 @@ const atualizarRank = () => {
   if (rankingLocal) {
     player = rankingLocal;
   }
-  campoRank.innerHTML = '';
-  player.sort((a, b) => b.pontos - a.pontos);
+  if (player.length > 0) {
 
-  const linhaTit = document.createElement('tr');
-  const tituloNome = document.createElement('td');
-  tituloNome.textContent = 'NOME';
-  linhaTit.appendChild(tituloNome);
-  const tituloPontos = document.createElement('td');
-  tituloPontos.textContent = 'PONTOS';
-  linhaTit.appendChild(tituloPontos);
-  const tituloData = document.createElement('td');
-  tituloData.textContent = 'DATA';
-  linhaTit.appendChild(tituloData);
-  campoRank.appendChild(linhaTit);
+    campoRank.innerHTML = '';
+    player.sort((a, b) => b.pontos - a.pontos);
 
-  for (const item of player) {
+    const linhaTit = document.createElement('tr');
+    const tituloNome = document.createElement('td');
+    tituloNome.textContent = 'NOME';
+    linhaTit.appendChild(tituloNome);
+    const tituloPontos = document.createElement('td');
+    tituloPontos.textContent = 'PONTOS';
+    linhaTit.appendChild(tituloPontos);
+    const tituloData = document.createElement('td');
+    tituloData.textContent = 'DATA';
+    linhaTit.appendChild(tituloData);
+    campoRank.appendChild(linhaTit);
 
-    const linha = document.createElement('tr');
-    const celulaNome = document.createElement('td');
-    celulaNome.textContent = item.nome;
-    linha.appendChild(celulaNome);
+    for (const item of player) {
 
-    const celulaPontos = document.createElement('td');
-    celulaPontos.textContent = item.pontos;
-    linha.appendChild(celulaPontos);
+      const linha = document.createElement('tr');
+      const celulaNome = document.createElement('td');
+      celulaNome.textContent = item.nome;
+      linha.appendChild(celulaNome);
 
-    const celulaData = document.createElement('td');
-    celulaData.textContent = item.data;
-    linha.appendChild(celulaData);
+      const celulaPontos = document.createElement('td');
+      celulaPontos.textContent = item.pontos;
+      linha.appendChild(celulaPontos);
+
+      const celulaData = document.createElement('td');
+      celulaData.textContent = item.data;
+      linha.appendChild(celulaData);
 
 
-    campoRank.appendChild(linha);
+      campoRank.appendChild(linha);
+    }
   }
 }
 
 const resetRank = () => {
   botaoReset.addEventListener('click', () => {
     localStorage.removeItem('rank');
-    player = {};
+    player = [];
     atualizarRank();
   })
 }
