@@ -2,18 +2,27 @@
 let nGabarito = 0;
 let corGabarito = '';
 let placar = 0;
+let vidas = 5;
+let player = {}
 const quantidadeDeCores = 6;
-
+const rankingLocal = JSON.parse(localStorage.getItem('rank'));
+if (rankingLocal) {
+  player = rankingLocal;
+}
 
 const divCirculo = document.querySelector('.circulos');
 const circulos = document.getElementsByClassName('ball');
 const textAnswer = document.getElementById('answer');
 const resetButton = document.getElementById('reset-game');
 const valueScore = document.getElementById('score');
-// Variáveis
+const valueLife = document.getElementById('vidas');
+const campoLog = document.getElementById('logList');
+const campoRank = document.getElementById('rank');
+const botaoReset = document.querySelector('.reset-rank');
 
 textAnswer.innerText = 'Escolha uma cor';
 valueScore.innerText = placar;
+valueLife.innerText = vidas;
 
 // Funções
 
@@ -58,36 +67,95 @@ const verificarCor = () => {
       console.log(nGabarito + 1);
       if (circulo.style.backgroundColor.slice(3) === corGabarito) {
         textAnswer.innerText = 'Acertou!';
+        fLog('Acertou! +3pts')
         placar += 3;
         valueScore.innerText = placar;
         gerarBotoesCores();
         corAleatoriaSorteada();
         verificarCor();
-        console.log(nGabarito + 1);
+
       } else {
         textAnswer.innerText = 'Errou! Tente novamente!';
+        fLog('Errou! -1 vida')
+        vidas -= 1;
+        valueLife.innerText = vidas;
+        if (vidas <= 0) {
+          fLog(`Fim de jogo! ${placar}pts`)
+          vidas = 0;
+          valueLife.innerText = vidas;
+          const thisPlayer = prompt(`Game Over! \nSua pontuação foi: ${placar} \nDigite seu nome:`)
+          if (thisPlayer) {
+            player[`${thisPlayer}`] = placar;
+            localStorage.setItem('rank', JSON.stringify(player));
+            atualizarRank();
+          }
+          começar();
+        }
       }
     });
   });
 };
 
+
 // Função do botão reset
 const resetGame = () => {
   resetButton.addEventListener('click', () => {
-    textAnswer.innerText = 'Escolha uma cor';
-    gerarBotoesCores();
-    corAleatoriaSorteada();
-    verificarCor();
-    console.log(corGabarito);
-    console.log(nGabarito + 1);
+    if (confirm('Deseja resetar o jogo?')) {
+      começar();
+    }
   });
 };
 
+const começar = () => {
+  textAnswer.innerText = 'Escolha uma cor';
+  gerarBotoesCores();
+  corAleatoriaSorteada();
+  verificarCor();
+  vidas = 5;
+  placar = 0;
+  valueScore.innerText = placar;
+  valueLife.innerText = vidas;
+
+  console.log(nGabarito + 1);
+}
+// Função atualizar log
+const fLog = (texto) => {
+  const log = document.createElement('p');
+  log.innerText = texto;
+  campoLog.appendChild(log)
+}
+
+// Atualizar Rank 
+const atualizarRank = () => {
+  if (rankingLocal) {
+    player = rankingLocal;
+  }
+  campoRank.innerHTML = '';
+  const lista = Object.entries(player);
+  lista.sort((a, b) => b[1] - a[1]);
+  for (const player of lista) {
+    const posicao = document.createElement('li');
+    posicao.classList.add('lista');
+    posicao.innerText = `${player[0]}: ${player[1]}pts`
+    campoRank.appendChild(posicao);
+  }
+}
+
+const resetRank = () => {
+  botaoReset.addEventListener('click', () => {
+    localStorage.removeItem('rank');
+    player = {};
+    atualizarRank();
+  })
+}
+
+fLog('Jogo iniciado.')
 preencherParagrafo();
 gerarBotoesCores();
 corAleatoriaSorteada();
 verificarCor();
 resetGame();
+atualizarRank();
+resetRank();
 
-console.log(corGabarito);
 console.log(nGabarito + 1);

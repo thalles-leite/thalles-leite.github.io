@@ -10,20 +10,53 @@
 </head>
 
 <body>
+    <section class="containerLog">
+        <section class="logTitulo">
+            <span>Log:</span>
+        </section>
+        <section class="logList" id="logList">
+
+        </section>
+    </section>
     <main>
-        <section class="placar">Placar: <span id="score" class="score"></span></section>
-        <section class="titulo">
-            <h1 id="title">Adivinhe a cor!</h1>
+
+        <section class="containerGame">
+            <section class="recursos">
+                <section class="placar">Placar: <span id="score" class="score"></span></section>
+                <section class="vidas">Vidas: <span id="vidas" class="vidas"></span></section>
+            </section>
+            <section class="game">
+
+                <section class="titulo">
+                    <h1 id="title">Adivinhe a cor!</h1>
+                </section>
+                <section class="codigoRGB">
+                    <p id="rgb-color"></p>
+                </section>
+                <section class="secAnswer">
+                    <p id="answer"></p>
+                </section>
+                <section class="circulos"></section>
+                <section class="secReset"><button id="reset-game" class="reset-game">Reset Game</button></section>
+
+            </section>
+
         </section>
-        <section class="codigoRGB">
-            <p id="rgb-color"></p>
+
+        <section class="containerHistorico">
+            <section class="ranking">
+                <h2>Ranking</h2>
+                <section class="resetRank"><button id="reset-rank" class="reset-rank">Reset rank</button></section>
+            </section>
+            <section class="historico" id="historico">
+                <ol id="rank" class="rank"></ol>
+            </section>
         </section>
-        <section class="secAnswer">
-            <p id="answer"></p>
-        </section>
-        <section class="circulos"></section>
-        <section class="secReset"><button id="reset-game" class="reset-game">Reset Game</button></section>
+
+
     </main>
+
+
 
 
     <script src="./script.js"></script>
