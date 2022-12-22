@@ -139,12 +139,12 @@ const fLog = (texto) => {
 
 // Atualizar Rank 
 const atualizarRank = () => {
+  campoRank.innerHTML = '';
   if (rankingLocal) {
     player = rankingLocal;
   }
   if (player.length > 0) {
 
-    campoRank.innerHTML = '';
     player.sort((a, b) => b.pontos - a.pontos);
 
     const linhaTit = document.createElement('tr');
