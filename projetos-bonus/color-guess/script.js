@@ -62,12 +62,7 @@ const corAleatoriaSorteada = () => {
 
 // Função para verificar se clicou na cor certo.
 const verificarCor = () => {
-  const resposta = document.createElement('p');
-  resposta.innerText = nGabarito + 1;
-  resposta.style.color = 'gray';
-  resposta.style.position = 'absolute';
-  resposta.style.fontSize = '0.7em'
-  boody.appendChild(resposta);
+
   Object.values(circulos).forEach((circulo) => {
     circulo.addEventListener('click', () => {
       console.log(nGabarito + 1);
