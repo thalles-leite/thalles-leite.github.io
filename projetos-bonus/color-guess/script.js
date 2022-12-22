@@ -3,7 +3,7 @@ let nGabarito = 0;
 let corGabarito = '';
 let placar = 0;
 let vidas = 5;
-let player = {}
+let player = [];
 const quantidadeDeCores = 6;
 const rankingLocal = JSON.parse(localStorage.getItem('rank'));
 if (rankingLocal) {
@@ -85,7 +85,12 @@ const verificarCor = () => {
           valueLife.innerText = vidas;
           const thisPlayer = prompt(`Game Over! \nSua pontuação foi: ${placar} \nDigite seu nome:`)
           if (thisPlayer) {
-            player[`${thisPlayer}`] = placar;
+            player.push({
+              nome: thisPlayer,
+              pontos: placar,
+              data: dataAtual()
+            })
+            console.log(player);
             localStorage.setItem('rank', JSON.stringify(player));
             atualizarRank();
           }
@@ -131,13 +136,37 @@ const atualizarRank = () => {
     player = rankingLocal;
   }
   campoRank.innerHTML = '';
-  const lista = Object.entries(player);
-  lista.sort((a, b) => b[1] - a[1]);
-  for (const player of lista) {
-    const posicao = document.createElement('li');
-    posicao.classList.add('lista');
-    posicao.innerText = `${player[0]}: ${player[1]}pts`
-    campoRank.appendChild(posicao);
+  player.sort((a, b) => b.pontos - a.pontos);
+
+  const linhaTit = document.createElement('tr');
+  const tituloNome = document.createElement('td');
+  tituloNome.textContent = 'NOME';
+  linhaTit.appendChild(tituloNome);
+  const tituloPontos = document.createElement('td');
+  tituloPontos.textContent = 'PONTOS';
+  linhaTit.appendChild(tituloPontos);
+  const tituloData = document.createElement('td');
+  tituloData.textContent = 'DATA';
+  linhaTit.appendChild(tituloData);
+  campoRank.appendChild(linhaTit);
+
+  for (const item of player) {
+
+    const linha = document.createElement('tr');
+    const celulaNome = document.createElement('td');
+    celulaNome.textContent = item.nome;
+    linha.appendChild(celulaNome);
+
+    const celulaPontos = document.createElement('td');
+    celulaPontos.textContent = item.pontos;
+    linha.appendChild(celulaPontos);
+
+    const celulaData = document.createElement('td');
+    celulaData.textContent = item.data;
+    linha.appendChild(celulaData);
+
+
+    campoRank.appendChild(linha);
   }
 }
 
@@ -147,6 +176,18 @@ const resetRank = () => {
     player = {};
     atualizarRank();
   })
+}
+
+const dataAtual = () => {
+  const data = new Date();
+  const dia = data.getDate();
+  const mes = data.getMonth() + 1;
+  const ano = data.getFullYear();
+  const hora = data.getHours();
+  const minuto = data.getMinutes();
+
+  const dataCompleta = `${dia}/${mes}/${ano} - ${hora}:${minuto}`;
+  return (dataCompleta);
 }
 
 fLog('Jogo iniciado.')
