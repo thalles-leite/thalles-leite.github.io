@@ -36,7 +36,7 @@ main{
 .containerGame {
   display: flex;
   flex-flow: column;
-  width: 71vw;
+  width: 70vw;
   align-items: center;
   justify-content: center;
   height: 100vh;  
@@ -102,7 +102,7 @@ main{
 }
 
 .containerLog{
-  border: 1px solid white;
+  border-right: 1px solid white;
   width: 9vw;
   
 }
@@ -110,8 +110,8 @@ main{
   color: white;
   background-color: rgb(61, 60, 60);
   text-align: center;
-  padding: 5px;
-  margin-bottom: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 .logList {
   display: flex;
@@ -136,7 +136,7 @@ main{
 .containerHistorico {
   height: 100vh;
   width: 20vw;
-  border: 1px solid white;
+  border-left: 1px solid white;
 }
 .ranking{
   display: flex;
@@ -209,15 +209,18 @@ main{
     width: 100%;
     height: 10vh;
     overflow-x: auto;
-    border-top: none;
+    border: none;
+    
   }
   .containerGame {
-    height: 72vh;
+    height: 71vh;
   }
    
   .containerHistorico {
     width: 100%;
     height: 18vh;    
+    border: none;
+    border-bottom: 1px solid white;
   }
   
   .logTitulo {
