@@ -1,0 +1,1 @@
+.newspaper, .magazine1 .magazine2, .medium, .big, .reallybig, .rotateleft, .rotateright, .skewleft, .skewright, 
