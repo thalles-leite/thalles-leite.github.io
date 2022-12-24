@@ -1,0 +1,149 @@
+/* stylelint-disable number-max-precision */
+
+/* stylelint-disable font-family-no-missing-generic-family-keyword */
+::selection {
+  background-color: transparent;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header , footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #e76f51;
+  color: white;
+  height: 8vh;
+}
+
+header h1 {
+  font-size: 3vmax;
+}
+
+footer {
+  height: 5vh;
+  bottom: 0;
+  position: fixed;
+  font-size: 1.5vmax;
+}
+
+main {
+  min-width: 100px;
+  min-height: 87vh;
+  width: 75vw;
+  margin-bottom: 8vh;
+}
+
+.editor {
+  margin-top: 5px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.062);
+  height: fit-content;
+  padding: 2vh 2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.visualizador {
+  padding: 15px;
+  margin-top: 5px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.062);
+}
+
+.carta-texto , .criar-carta {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.123);
+  width: 100%;
+}
+
+.criar-carta {
+  margin-top: 10px;
+  width: fit-content;
+  background-color: white;
+  cursor: pointer;
+}
+
+.carta-gerada {
+  line-height: 4.5em;
+}
+
+.carta-gerada span {
+  cursor: pointer;
+}
+
+
+.cartaContador {
+  text-align: right;
+  padding-right: 1vw;
+  width: 100%;
+  height: 20px;
+  font-size: 0.8em;
+}
+
+.newspaper {
+  background-color: antiquewhite;
+  font-family: Times New Roman, Times, serif;
+  font-weight: 700;
+}
+
+.magazine1 {
+  background-color: teal;
+  color: white;
+  font-family: Verdana;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.magazine2 {
+  background-image: url('./images/pink-pattern.png');
+  color: fuchsia;
+  font-family: Verdana;
+  font-weight: 900;
+}
+
+.medium {
+  font-size: 20px;
+  padding: 8px;
+}
+
+.big {
+  font-size: 30px;
+  padding: 10px;
+}
+
+.reallybig {
+  font-size: 40px;
+  padding: 15px;
+}
+
+.rotateleft {
+  transform: matrix(0.996195, -0.0871557, 0.0871557, 0.996195, 0, 0);
+}
+
+.rotateright {
+  transform: matrix(0.996195, 0.0871557, -0.0871557, 0.996195, 0, 0);
+}
+
+.skewleft {
+  transform: matrix(1, 0, 0.176327, 1, 0, 0);
+}
+
+.skewright {
+  transform: matrix(1, 0, -0.176327, 1, 0, 0);
+}
