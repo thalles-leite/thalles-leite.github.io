@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
+
+*{
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Electrolize', sans-serif;
+    /* font-family: 'Press Start 2P', cursive; */
+}
+
+body {
+  background-image: url(imagens/ceu.jpeg);
+  background-size: contain;
+  background-repeat: repeat-x;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+.game {
+    background-position: bottom;
+    background-repeat: repeat-x;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+
+.player {
+    
+    background-image: url(imagens/oldman2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 140px;
+    width: 200px;
+    position: absolute;
+    bottom: 69px;
+    left: 10vw;
+    z-index: 1;
+}
+.chao {
+    background-image: url(imagens/chao.jpeg);
+    position: absolute;
+    background-position: bottom;
+    width: 100vw;
+    height: 100vh;
+    background-repeat: repeat-x;
+    
+}
+
+.obstacle {
+    background-image: url(imagens/casco.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    right: -100px;
+    height: 90px;
+    width: 100px;
+    position: absolute;
+    bottom: 69px;
+    z-index: 2;
+}
+/* 
+.teste, .stop, .play {
+    z-index: 1;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    
+} */
+
+.stop {
+    left: 103px;
+}
+
+.play {
+    left: 60px;
+}
+.info {
+    color: white;
+    font-size: 2em;
+    position: absolute;
+    top: 30px;
+    right: 45vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+.popUp {
+    margin: 0 auto;
+    position: absolute;
+    top: 30vh;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    background-color: white;
+    border: 1px solid black;
+    padding: 20px;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.65);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.65);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.65);
+    text-align: center;
+    z-index: 2;
+}
+.containerMsg {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    /* min-width: 40vw; */
+    /* min-height: 15vh; */
+    
+
+}
+
+.mensagem {
+    min-width: 20vw;
+    width: 50%;
+    
+}
+.resultados {
+    min-width: 20vw;
+    width: 50%;
+}
+
+.resultados h2 {
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+    border-bottom: 1px solid black;
+}
+.mensagem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    justify-items: center;
+    text-align: center;
+}
+
+.mensagem h3 {
+    margin: 20px 0;
+}
+.GameOver{
+    font-size: 3.2vw;
+    color: red;
+    border-radius: 10px;
+}
+.rankCont {
+    max-height: 20vh; 
+    overflow-y: auto;
+}
+
+.pontuacao {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 10px;
+    width: 90%;
+    margin: 2px 0;
+    background-color: rgba(128, 128, 128, 0.103);
+}
+@keyframes pular {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-250px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+@keyframes moverObj {
+    from {
+        background-position: 0 bottom;
+    }
+    to {
+        background-position: -3776px bottom;
+    }
+}
+
+@keyframes moveObstaculo {
+    from {
+        margin-right: 0;
+    }
+    to {
+        margin-right: 120%;
+    }
+}

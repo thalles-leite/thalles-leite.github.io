@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarioKart</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <section class="info">
+            <span class="jogador" id="jogador"></span><br>
+            <span>Pontuação: </span><span class="score" id="score">0</span>
+        </section>
+    </header>
+    <main>
+        <section class="game" id="game">
+            <span class="player" id="player"></span>
+            <section class="respawn" id="respawn"></section>
+            <span class="chao"></span>
+        </section>
+    </main>
+
+    <section class="popUp" id="popUp">
+        <div class="containerMsg">
+
+        </div>
+    </section>
+    <audio src="sounds/corrida.mp3" id="audioCorrida" class="audioCorrida"></audio>
+    <audio src="sounds/cartoon-jump-6462.mp3" id="audioJump" class="audioJump"></audio>
+    <script src="script.js"></script>
+</body>
+
+</html>
