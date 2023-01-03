@@ -273,7 +273,7 @@ const criarObstaculo = () => {
         moverIntervalo = setInterval(() => {
             moverObstaculo(obstaculo);
 
-        }, (Math.round(tamanhoTela / (velocidade * 10))));
+        }, (Math.round(tamanhoTela / (velocidade * 8))));
         estado = 'run';
     }
 }

@@ -1,3 +1,7 @@
+:root {
+    --alturaObstaculo: 90px;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
@@ -55,7 +59,7 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     right: -100px;
-    height: 90px;
+    height: var(--alturaObstaculo);
     width: 100px;
     position: absolute;
     bottom: 69px;
@@ -87,7 +91,7 @@ body {
     text-align: center;
     height: 20vh;
     width: 100%;
-    background-color: rebeccapurple;
+    background-color: rgba(102, 51, 153, 0.137);
 }
 .popUp {
     margin: 0 auto;
@@ -185,7 +189,10 @@ body {
       transform: translateY(0);
     }
     40% {
-      transform: translateY(-30vh);
+      transform: translateY(calc(var(--alturaObstaculo)*-2.5));
+    }
+    90% {
+        transform: translateY(calc(var(--alturaObstaculo)*-0.5));
     }
     100% {
       transform: translateY(0);
