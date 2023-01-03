@@ -78,13 +78,17 @@ body {
     left: 60px;
 }
 .info {
+    display: flex;
+    flex-direction: column;
     color: white;
     font-size: 2em;
     position: absolute;
     top: 30px;
     right: 45vw;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    justify-content: space-between;
     text-align: center;
+    height: 20vh;
 }
 .popUp {
     margin: 0 auto;
@@ -158,12 +162,31 @@ body {
     margin: 2px 0;
     background-color: rgba(128, 128, 128, 0.103);
 }
+
+.pts{
+    font-size: 0.8em;
+}
+
+.bestScore {
+    font-size: 0.8em;
+}
+
+.trofeu{
+    height: 1.2em;
+    margin-bottom: -0.15em;
+    margin-right: 0.2em;
+}
+
+.jogador, .score {
+    font-size: 0.6em;
+    
+}
 @keyframes pular {
     0% {
       transform: translateY(0);
     }
-    50% {
-      transform: translateY(-250px);
+    40% {
+      transform: translateY(-30vh);
     }
     100% {
       transform: translateY(0);

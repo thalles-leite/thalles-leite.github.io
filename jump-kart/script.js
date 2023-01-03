@@ -13,6 +13,7 @@ const alturaTela = window.innerHeight;
 const velocidade = 5;
 const campoScore = document.getElementById('score');
 const campoPlayer = document.getElementById('jogador');
+const bestScore = document.getElementById('bestScore');
 let info = [];
 let nomeInput = '';
 let Pname = 'Visitante';
@@ -28,13 +29,24 @@ player.style.marginLeft = 0;
 player.style.marginBottom = 0;
 
 chao.style.backgroundPositionX = 0;
-const infoLocal = localStorage.getItem('info');
-if (infoLocal) {
-    info = (JSON.parse(infoLocal));
-    //Ordena os valores de ordem decrescente
 
+// bestScore.innerText = `${info[0].nome} - ${info[0].pontos} pts`;
+
+const fInfoLocal = () => {
+    const infoLocal = localStorage.getItem('info');
+    const trof = document.createElement('img');
+    const locTrof = document.getElementById('pts');
+    trof.src = 'imagens/trofeu.png'
+    trof.className = 'trofeu';
+    if (infoLocal) {
+        info = (JSON.parse(infoLocal));
+        //Ordena os valores de ordem decrescente
+        info.sort((a, b) => b.pontos - a.pontos)
+        bestScore.innerText = `${info[0].nome} - ${info[0].pontos} pts`
+        locTrof.innerHTML = ''
+        locTrof.appendChild(trof);
+    }
 }
-
 const iniciarScore = () => {
     pontuacaoInterval = setInterval(() => {
         score += 1;
@@ -194,6 +206,7 @@ const moveChao = () => {
     chao.style.animation = 'moverObj 5s linear infinite';
     audioCorrida.play();
     audioCorrida.loop = true;
+
 }
 
 const moveDireita = () => {
@@ -294,6 +307,9 @@ const pararTudo = () => {
     info.push({ nome: Pname, pontos: score })
     localStorage.setItem('info', JSON.stringify(info));
     exibirPopUp(mensagemGameOver());
+    console.log(info);
+    fInfoLocal();
+    fBestScore();
 
 }
 // const clicarBotaoStop = () => {
@@ -307,7 +323,7 @@ const posicaoPlayer = () => {
     const posicaoY = player.getBoundingClientRect().y;
     const limites = [];
     limites.push(posicaoX);
-    limites.push(posicaoX + 200);
+    limites.push(posicaoX + player.getBoundingClientRect().width * 0.9);
     limites.push(alturaTela - posicaoY - 209);
     return limites;
 }
@@ -317,17 +333,28 @@ const posicaoObstaculos = () => {
     const limites = []
     Object.values(obstaculos).forEach((obstaculo) => {
         limites.push(obstaculo.getBoundingClientRect().x)
-        limites.push(obstaculo.getBoundingClientRect().x + 100);
+        limites.push(obstaculo.getBoundingClientRect().x + 95);
         limites.push(alturaTela - obstaculo.getBoundingClientRect().y - 70);
     })
     return limites
 }
 
+const fBestScore = () => {
+    const trof = document.createElement('span');
+    trof.className = 'trofeu';
+    if (info.length > 0) {
+        if (score > info[0].pontos) {
+            bestScore.appendChild(trof)
+            bestScore.innerText = ` ${Pname} - ${score} pts`
+        }
+    }
+}
 
 const verificaColisao = () => {
+    fInfoLocal();
+    fBestScore()
     const posPlayer = posicaoPlayer();
     const posObstaculo = posicaoObstaculos();
-
     for (let i = 0; i < posObstaculo.length; i += 3) {
         if ((posPlayer[1] > posObstaculo[i] && posPlayer[0] < posObstaculo[i + 1]) && (posPlayer[2] < posObstaculo[i + 2])) {
             pararTudo();
@@ -339,13 +366,14 @@ const verificaColisao = () => {
 
 
 const start = () => {
+
     if (document.getElementById('nomePlayer')) {
         nomeInput = document.getElementById('nomePlayer').value;
     }
     nomeInput.trim() !== '' && (Pname = nomeInput);
     removerPopUp();
     score = 0;
-    campoPlayer.innerText = Pname;
+    campoPlayer.innerText = `${Pname} :`;
     campoScore.innerHTML = 0;
     iniciarScore();
     const obstaculos = document.getElementsByClassName('obstacle');
@@ -379,3 +407,4 @@ const clicarBotaoPlay = () => {
 // clicarBotaoPlay();
 
 exibirPopUp(mensagemInicio());
+fInfoLocal();
