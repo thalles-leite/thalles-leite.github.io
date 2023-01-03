@@ -83,12 +83,14 @@ body {
     color: white;
     font-size: 2em;
     position: absolute;
-    top: 30px;
+    margin: 0;
+    top: 5vh;
     right: 45vw;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     justify-content: space-between;
     text-align: center;
     height: 20vh;
+    background-color: rebeccapurple;
 }
 .popUp {
     margin: 0 auto;
