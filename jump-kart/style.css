@@ -51,8 +51,7 @@ body {
 }
 
 .obstacle {
-    border: 1px solid black;
-    background-image: url(imagens/obs1.png);
+    background-image: url(imagens/each/op14.png);
     background-size: contain;
     background-repeat: no-repeat;
     right: -100px;

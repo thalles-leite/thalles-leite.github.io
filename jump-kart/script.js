@@ -8,7 +8,6 @@ const campoPopUp = document.getElementById('popUp');
 const botaoStop = document.getElementById('stop');
 const botaoPlay = document.getElementById('play');
 const localRespawn = document.getElementById('respawn');
-
 const tamanhoTela = window.innerWidth;
 const alturaTela = window.innerHeight;
 const velocidade = 5;
@@ -24,6 +23,7 @@ let moverIntervalo = '';
 let pontuacaoInterval = '';
 let verificaIntervalo = '';
 let frequencia = 1000;
+let oponentes = ['op2.png', 'op3.png', 'op4.png', 'op5.png', 'op6.png', 'op7.png', 'op8.png', 'op9.png', 'op10.png', 'op11.png', 'op12.png', 'op13.png', 'op14.png', 'op15.png']
 player.style.marginLeft = 0;
 player.style.marginBottom = 0;
 
@@ -157,28 +157,31 @@ const removerPopUp = () => {
 
 document.addEventListener('keydown', (element) => {
     const tecla = element.key;
-    switch (tecla) {
-        case 'ArrowRight':
-            moveDireita();
-            break;
-        case 'ArrowLeft':
-            moveEsquerda();
-            break;
-        case ' ':
-            // voarCima();
-            pular();
-            break;
-        case 'ArrowDown':
+    console.log(estado)
+    if (estado === 'run') {
+        switch (tecla) {
+            case 'ArrowRight':
+                moveDireita();
+                break;
+            case 'ArrowLeft':
+                moveEsquerda();
+                break;
+            case ' ':
+                // voarCima();
+                pular();
+                break;
+            case 'ArrowDown':
 
-            // voarBaixo();
-            break;
-        case 'Enter':
-            start();
+                // voarBaixo();
+                break;
+            case 'Enter':
+                start();
 
-            break;
+                break;
 
-        default:
-            break;
+            default:
+                break;
+        }
     }
 
 })
@@ -249,6 +252,9 @@ const criarObstaculo = () => {
     // console.log(document.getElementsByClassName('obstacle').length)
     if (document.getElementsByClassName('obstacle').length === 0) {
         const obstaculo = document.createElement('span')
+        oponenteAleatorio = oponentes[Math.floor(Math.random() * oponentes.length)]
+        console.log(oponenteAleatorio);
+        obstaculo.style.backgroundImage = `url(imagens/each/${oponenteAleatorio})`;
         obstaculo.className = 'obstacle'
         localRespawn.appendChild(obstaculo);
         moverIntervalo = setInterval(() => {
@@ -312,7 +318,7 @@ const posicaoObstaculos = () => {
     Object.values(obstaculos).forEach((obstaculo) => {
         limites.push(obstaculo.getBoundingClientRect().x)
         limites.push(obstaculo.getBoundingClientRect().x + 100);
-        limites.push(alturaTela - obstaculo.getBoundingClientRect().y - 69);
+        limites.push(alturaTela - obstaculo.getBoundingClientRect().y - 70);
     })
     return limites
 }
@@ -349,7 +355,7 @@ const start = () => {
     player.style.animation = '';
     player.style.bottom = '69px';
     player.style.left = '10vw';
-    estado = 'stop'
+
     verificaIntervalo = setInterval(verificaColisao, 10);
 }
 
