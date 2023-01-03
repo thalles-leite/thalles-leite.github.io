@@ -30,9 +30,8 @@ body {
 }
 
 .player {
-    
-    background-image: url(imagens/oldman2.png);
-    background-size: contain;
+    background-image: url(imagens/vilao.png);
+    background-size: cover;
     background-repeat: no-repeat;
     height: 140px;
     width: 200px;
@@ -52,7 +51,8 @@ body {
 }
 
 .obstacle {
-    background-image: url(imagens/casco.png);
+    border: 1px solid black;
+    background-image: url(imagens/obs1.png);
     background-size: contain;
     background-repeat: no-repeat;
     right: -100px;
@@ -147,7 +147,7 @@ body {
     border-radius: 10px;
 }
 .rankCont {
-    max-height: 20vh; 
+    max-height: 30vh; 
     overflow-y: auto;
 }
 

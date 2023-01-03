@@ -3,14 +3,15 @@ const game = document.querySelector('.game');
 const chao = document.querySelector('.chao');
 const audioCorrida = document.querySelector('.audioCorrida');
 const audioPular = document.querySelector('.audioJump');
+const campoPopUp = document.getElementById('popUp');
 // const botaoTeste = document.getElementById('teste');
 const botaoStop = document.getElementById('stop');
 const botaoPlay = document.getElementById('play');
 const localRespawn = document.getElementById('respawn');
-const campoPopUp = document.getElementById('popUp');
+
 const tamanhoTela = window.innerWidth;
 const alturaTela = window.innerHeight;
-const velocidade = 10;
+const velocidade = 5;
 const campoScore = document.getElementById('score');
 const campoPlayer = document.getElementById('jogador');
 let info = [];
@@ -22,6 +23,7 @@ let obstaculoInterval = '';
 let moverIntervalo = '';
 let pontuacaoInterval = '';
 let verificaIntervalo = '';
+let frequencia = 1000;
 player.style.marginLeft = 0;
 player.style.marginBottom = 0;
 
@@ -32,7 +34,6 @@ if (infoLocal) {
     //Ordena os valores de ordem decrescente
 
 }
-console.log(info)
 
 const iniciarScore = () => {
     pontuacaoInterval = setInterval(() => {
@@ -44,6 +45,7 @@ const iniciarScore = () => {
 
 const mensagemInicio = () => {
     const container = document.createElement('section');
+    container.id = 'msgInicio';
     const titulo = document.createElement('h4');
     const nome = document.createElement('input');
     nome.type = 'text';
@@ -74,7 +76,7 @@ const mensagemInicio = () => {
 }
 
 const mensagemGameOver = () => {
-    const cont = document.getElementById('popUp');
+    const cont = document.getElementById('containerMsg');
     const mensagem = document.createElement('section');
     mensagem.className = 'mensagem';
     const h2GameOver = document.createElement('h2');
@@ -100,6 +102,7 @@ const mensagemGameOver = () => {
     mensagem.appendChild(h3Pontuacao)
     mensagem.appendChild(h5Press)
     mensagem.appendChild(botaoStart);
+    // console.log(cont)
     cont.appendChild(mensagem);
 
     const resultados = document.createElement('section');
@@ -137,16 +140,20 @@ const mensagemGameOver = () => {
 }
 
 const exibirPopUp = (elemento) => {
-    console.log(elemento);
+    const campoMsg = document.getElementById('containerMsg');
     campoPopUp.style.display = 'flex';
+    // console.log(elemento)
     campoPopUp.appendChild(elemento)
 }
 const removerPopUp = () => {
-    campoPopUp.innerHTML = '';
+    const campoMsg = document.getElementById('containerMsg');
+    const msgInicio = document.getElementById('msgInicio');
+    msgInicio.innerHTML = '';
+    campoMsg.innerHTML = '';
     campoPopUp.style.display = 'none';
 }
 
-exibirPopUp(mensagemInicio());
+
 
 document.addEventListener('keydown', (element) => {
     const tecla = element.key;
@@ -239,22 +246,17 @@ const moverObstaculo = (obstaculo) => {
 }
 
 const criarObstaculo = () => {
-    console.log(estado)
+    // console.log(document.getElementsByClassName('obstacle').length)
+    if (document.getElementsByClassName('obstacle').length === 0) {
+        const obstaculo = document.createElement('span')
+        obstaculo.className = 'obstacle'
+        localRespawn.appendChild(obstaculo);
+        moverIntervalo = setInterval(() => {
+            moverObstaculo(obstaculo);
 
-    const obstaculo = document.createElement('span')
-    obstaculo.className = 'obstacle'
-    localRespawn.appendChild(obstaculo);
-    moverIntervalo = setInterval(() => {
-        moverObstaculo(obstaculo);
-        // if (obstaculo.getBoundingClientRect().x > 0) {
-        //     console.log('Player: ' + player.getBoundingClientRect().x);
-        //     console.log('Obstaculo: ' + obstaculo.getBoundingClientRect().x);
-        // }
-
-
-    }, (Math.round(tamanhoTela / (velocidade * 10))));
-    estado = 'run';
-
+        }, (Math.round(tamanhoTela / (velocidade * 10))));
+        estado = 'run';
+    }
 }
 // const clicarBotaoTeste = () => {
 //     botaoTeste.addEventListener('click', () => {
@@ -279,6 +281,7 @@ const pararTudo = () => {
     pararObstaculo();
     clearInterval(obstaculoInterval);
     clearInterval(verificaIntervalo);
+    clearInterval(moverIntervalo)
     player.style.animationPlayState = 'paused';
     estado = 'stop';
     clearInterval(pontuacaoInterval);
@@ -287,11 +290,11 @@ const pararTudo = () => {
     exibirPopUp(mensagemGameOver());
 
 }
-const clicarBotaoStop = () => {
-    botaoStop.addEventListener('click', () => {
-        pararTudo();
-    })
-}
+// const clicarBotaoStop = () => {
+//     botaoStop.addEventListener('click', () => {
+//         pararTudo();
+//     })
+// }
 
 const posicaoPlayer = () => {
     const posicaoX = player.getBoundingClientRect().x;
@@ -354,7 +357,7 @@ const obstaculoAleatorio = () => {
     if (estado !== 'run') {
         obstaculoInterval = setInterval(() => {
             criarObstaculo();
-        }, Math.random() * 5000 + 2000);
+        }, Math.random() * frequencia + 2000);
         estado = 'run';
     }
 }
@@ -366,6 +369,7 @@ const clicarBotaoPlay = () => {
 }
 
 // clicarBotaoTeste();
-clicarBotaoStop();
-clicarBotaoPlay();
+// clicarBotaoStop();
+// clicarBotaoPlay();
 
+exibirPopUp(mensagemInicio());
