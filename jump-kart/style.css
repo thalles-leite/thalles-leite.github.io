@@ -34,7 +34,6 @@ body {
 }
 
 .player {
-    border: 1px red dashed;
     background-image: url(imagens/oldman2.png);
     background-size: contain;
     background-repeat: no-repeat;
