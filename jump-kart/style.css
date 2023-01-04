@@ -188,6 +188,17 @@ body {
     font-size: 0.6em;
     
 }
+
+.sound{
+    color: white;
+    position: absolute;
+    cursor: pointer;
+    top: 5px;
+    left: 10px;
+    width: 3vw;
+    height: 3vw;
+    z-index: 5;
+}
 @keyframes pular {
     0% {
       transform: translateY(0);

@@ -10,10 +10,12 @@ const botaoPlay = document.getElementById('play');
 const localRespawn = document.getElementById('respawn');
 const tamanhoTela = window.innerWidth;
 const alturaTela = window.innerHeight;
-const velocidade = 5;
+const velocidade = 3;
 const campoScore = document.getElementById('score');
 const campoPlayer = document.getElementById('jogador');
 const bestScore = document.getElementById('bestScore');
+const botaoSom = document.getElementById('sound');
+
 let info = [];
 let nomeInput = '';
 let Pname = 'Visitante';
@@ -26,6 +28,26 @@ let verificaIntervalo = '';
 let frequencia = 1000;
 let preOponentes = ['imagens/each/op2.png', 'imagens/each/op3.png', 'imagens/each/op4.png', 'imagens/each/op5.png', 'imagens/each/op6.png', 'imagens/each/op7.png', 'imagens/each/op8.png', 'imagens/each/op9.png', 'imagens/each/op10.png', 'imagens/each/op11.png', 'imagens/each/op12.png', 'imagens/each/op13.png', 'imagens/each/op14.png', 'imagens/each/op15.png']
 let oponentes = [];
+
+const iconeMusic = () => {
+    const som = document.createElement('i');
+
+    if (audioCorrida.muted) {
+        som.className = 'fa-solid fa-volume-xmark'
+    } else {
+        som.className = 'fa-solid fa-volume-high'
+    }
+    botaoSom.innerHTML = ''
+    botaoSom.appendChild(som);
+}
+
+const ativarDesativarSom = () => {
+    botaoSom.addEventListener('click', () => {
+        audioCorrida.muted = !audioCorrida.muted
+        iconeMusic();
+    })
+}
+
 
 preOponentes.forEach((imagemPath) => {
     const imagem = new Image();
@@ -281,7 +303,7 @@ const criarObstaculo = () => {
         moverIntervalo = setInterval(() => {
             moverObstaculo(obstaculo);
 
-        }, (Math.round(tamanhoTela / (velocidade * 8))));
+        }, (Math.round(tamanhoTela / (25 * (velocidade)))));
         estado = 'run';
     }
 }
@@ -416,3 +438,5 @@ const clicarBotaoPlay = () => {
 
 exibirPopUp(mensagemInicio());
 fInfoLocal();
+ativarDesativarSom();
+iconeMusic();
