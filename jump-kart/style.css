@@ -148,8 +148,13 @@ body {
     text-align: center;
 }
 
+
 .mensagem h3 {
     margin: 20px 0;
+}
+
+.mensagem h5 {
+    font-size: 0.55em;
 }
 .GameOver{
     font-size: 3.2vw;
@@ -198,6 +203,23 @@ body {
     width: 3vw;
     height: 3vw;
     z-index: 5;
+}
+.contBotoes{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    justify-items: center;
+    width: 100%;
+    align-items: center;
+    
+}
+
+.btnG{
+    padding:5px 7px;
+    font-size: 0.7em;
+    border: 1px solid black;
+    border-radius: 50px;
+    font-weight: 900;
 }
 @keyframes pular {
     0% {

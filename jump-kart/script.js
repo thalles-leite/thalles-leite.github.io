@@ -15,6 +15,7 @@ const campoScore = document.getElementById('score');
 const campoPlayer = document.getElementById('jogador');
 const bestScore = document.getElementById('bestScore');
 const botaoSom = document.getElementById('sound');
+const mesmoPlayer = false;
 
 let info = [];
 let nomeInput = '';
@@ -128,22 +129,33 @@ const mensagemGameOver = () => {
     const h3Pontuacao = document.createElement('h3');
     h3Pontuacao.innerText = `Pontuação: ${score}`
     const h5Press = document.createElement('h5');
-    h5Press.innerText = `Pressione 'Enter' para iniciar um novo jogo.`
+    h5Press.innerText = `Pressione 'Enter' para tentar novamente.`
+    const contBotoes = document.createElement('section');
+    contBotoes.className = 'contBotoes';
     const botaoStart = document.createElement('button');
-    botaoStart.innerText = 'Começar';
-    botaoStart.style.marginTop = '10px';
-    botaoStart.style.padding = '8px';
-    botaoStart.style.border = '1px solid black';
-    botaoStart.style.borderRadius = '50px';
-    botaoStart.style.fontWeight = 900;
+    botaoStart.className = 'btnG'
+    botaoStart.innerText = 'Tentar Novamente';
+
     botaoStart.addEventListener('click', () => {
         start();
     })
+    const botaoNovo = document.createElement('button')
+
+    botaoNovo.innerText = 'Novo Jogo';
+    botaoNovo.className = 'btnG'
+    botaoNovo.addEventListener('click', () => {
+        removerPopUp();
+        exibirPopUp(mensagemInicio());
+    })
+
+    contBotoes.appendChild(botaoStart)
+    contBotoes.appendChild(botaoNovo)
     h2GameOver.appendChild(spanGameOver);
     mensagem.appendChild(h2GameOver)
     mensagem.appendChild(h3Pontuacao)
     mensagem.appendChild(h5Press)
-    mensagem.appendChild(botaoStart);
+
+    mensagem.appendChild(contBotoes)
     // console.log(cont)
     cont.appendChild(mensagem);
 
@@ -336,19 +348,25 @@ const pararTudo = () => {
     player.style.animationPlayState = 'paused';
     estado = 'stop';
     clearInterval(pontuacaoInterval);
-    info.push({ nome: Pname, pontos: score })
-    localStorage.setItem('info', JSON.stringify(info));
+    const resultado = info.filter(objeto => objeto.nome === Pname)
+    if (resultado.length > 0) {
+        if (score > resultado[0].pontos) {
+            const indiceObj = info.indexOf(resultado[0])
+            info[indiceObj] = { nome: Pname, pontos: score }
+            localStorage.setItem('info', JSON.stringify(info));
+        }
+    } else {
+        info.push({ nome: Pname, pontos: score })
+        localStorage.setItem('info', JSON.stringify(info));
+    }
+
     exibirPopUp(mensagemGameOver());
-    console.log(info);
     fInfoLocal();
     fBestScore();
+    score = 0;
 
 }
-// const clicarBotaoStop = () => {
-//     botaoStop.addEventListener('click', () => {
-//         pararTudo();
-//     })
-// }
+
 
 const posicaoPlayer = () => {
     const posicaoX = player.getBoundingClientRect().x;
