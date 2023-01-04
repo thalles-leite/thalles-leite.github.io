@@ -1,5 +1,6 @@
 :root {
     --alturaObstaculo: 90px;
+    --backgroundPlayer: url(imagens/mario.gif)
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -34,8 +35,9 @@ body {
 }
 
 .player {
-    background-image: url(imagens/vilao.png);
-    background-size: cover;
+    border: 1px solid red;
+    background-image: var(--backgroundPlayer);
+    background-size: contain;
     background-repeat: no-repeat;
     height: 140px;
     width: 200px;
@@ -99,8 +101,10 @@ body {
     font-size: 2em;
     top: 5vh;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    justify-content: space-between;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
     height: 20vh;
     width: 100%;
     background-color: rgba(102, 51, 153, 0.137);
@@ -170,8 +174,9 @@ body {
     border-radius: 10px;
 }
 .rankCont {
-    max-height: 30vh; 
+    max-height: 15vh; 
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .pontuacao {
@@ -232,15 +237,22 @@ body {
 @keyframes pular {
     0% {
       transform: translateY(0);
+      background-image: url(imagens/mario2.png);
     }
     40% {
-      transform: translateY(calc(var(--alturaObstaculo)*-2.5));
+      transform: translateY(calc(var(--alturaObstaculo)*-2.8));
+      background-image: url(imagens/mario2.png);
     }
     90% {
-        transform: translateY(calc(var(--alturaObstaculo)*-0.5));
+        transform: translateY(calc(var(--alturaObstaculo)*-0.9));
+        background-image: url(imagens/mario2.png);  
+    }
+    99% {
+        background-image: url(imagens/mario2.png);
     }
     100% {
       transform: translateY(0);
+      background-image: url(imagens/mario.gif);
     }
   }
 

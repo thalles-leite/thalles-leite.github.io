@@ -1,9 +1,10 @@
+const pagina = document.querySelector('body');
 const player = document.getElementById('player');
 const game = document.querySelector('.game');
 const chao = document.querySelector('.chao');
 const audioCorrida = document.querySelector('.audioCorrida');
 const audioPular = document.querySelector('.audioJump');
-const campoPopUp = document.getElementById('popUp');
+
 // const botaoTeste = document.getElementById('teste');
 const botaoStop = document.getElementById('stop');
 const botaoPlay = document.getElementById('play');
@@ -27,13 +28,16 @@ let pontuacaoInterval = '';
 let verificaIntervalo = '';
 let verificaVelocidade = '';
 let frequencia = 1000;
-let velocidade = 1.5;
+let velocidade = 1.7;
 let preOponentes = ['imagens/each/op2.png', 'imagens/each/op3.png', 'imagens/each/op4.png', 'imagens/each/op5.png', 'imagens/each/op6.png', 'imagens/each/op7.png', 'imagens/each/op8.png', 'imagens/each/op9.png', 'imagens/each/op10.png', 'imagens/each/op11.png', 'imagens/each/op12.png', 'imagens/each/op13.png', 'imagens/each/op14.png', 'imagens/each/op15.png']
 let oponentes = [];
 
+
+
+
 const aumentarVelocidade = () => {
     velocidade += 0.1
-    sectionVelocidade.innerText = velocidade.toFixed(1)
+    sectionVelocidade.innerText = velocidade.toFixed(1);
 
 }
 
@@ -94,8 +98,7 @@ const somarScore = () => {
 
 
 const mensagemInicio = () => {
-    const container = document.createElement('section');
-    container.id = 'msgInicio';
+    const container = criarPopUp();
     const titulo = document.createElement('h4');
     const nome = document.createElement('input');
     nome.type = 'text';
@@ -115,7 +118,7 @@ const mensagemInicio = () => {
     botaoStart.style.borderRadius = '50px';
     botaoStart.style.fontWeight = 900;
     botaoStart.addEventListener('click', () => {
-        removerPopUp();
+
         start();
     })
 
@@ -123,12 +126,23 @@ const mensagemInicio = () => {
     container.appendChild(nome);
     container.appendChild(titulo);
     container.appendChild(botaoStart)
+    console.log(container)
     return container;
 }
+const criarPopUp = () => {
+    const popUp = document.createElement('section');
+    popUp.id = 'popUp';
+    popUp.className = 'popUp'
+    popUp.style.display = 'flex';
+    popUp.style.flexDirection = 'column'
+    popUp.style.maxHeight = '35vh';
+    return popUp;
+}
+
 
 const mensagemGameOver = () => {
-    removerPopUp();
-    const cont = document.getElementById('popUp');
+    const cont = criarPopUp();
+    cont.style.flexDirection = 'row';
     const mensagem = document.createElement('section');
     mensagem.className = 'mensagem';
     const h2GameOver = document.createElement('h2');
@@ -203,20 +217,16 @@ const mensagemGameOver = () => {
 }
 
 const exibirPopUp = (elemento) => {
-    const campoMsg = document.getElementById('containerMsg');
 
-    campoPopUp.style.display = 'flex';
-    // console.log(elemento)
-    campoPopUp.appendChild(elemento)
+    elemento.style.display = 'flex';
+    console.log(elemento);
+    pagina.appendChild(elemento)
 }
 const removerPopUp = () => {
-    // const campoMsg = document.getElementById('containerMsg');
-    // const msgInicio = document.getElementById('msgInicio');
-    // console.log(msgInicio);
-    // msgInicio.innerHTML = '';
-    // campoMsg.innerHTML = '';
-    campoPopUp.style.display = 'none';
-    campoPopUp.innerHTML = '';
+    console.log(1)
+    const campoPopUp = document.getElementById('popUp')
+    console.log(campoPopUp.parentNode)
+    campoPopUp.parentNode.removeChild(campoPopUp)
 }
 
 
@@ -446,9 +456,9 @@ const start = () => {
     player.style.animation = '';
     player.style.bottom = '69px';
     player.style.left = '10vw';
-
+    sectionVelocidade.innerText = velocidade.toFixed(1);
     verificaIntervalo = setInterval(verificaColisao, 10);
-    verificaVelocidade = setInterval(aumentarVelocidade, 5000)
+    verificaVelocidade = setInterval(aumentarVelocidade, 10000)
 }
 
 const obstaculoAleatorio = () => {
