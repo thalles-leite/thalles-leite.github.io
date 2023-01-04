@@ -135,7 +135,7 @@ const criarPopUp = () => {
     popUp.className = 'popUp'
     popUp.style.display = 'flex';
     popUp.style.flexDirection = 'column'
-    popUp.style.maxHeight = '35vh';
+    popUp.style.height = 'fit-content';
     return popUp;
 }
 
