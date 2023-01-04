@@ -69,6 +69,14 @@ body {
     width: 100px;
     height: var(--alturaObstaculo);
 }
+.velocidade {
+    position: absolute;
+    color: red;
+    height: 50px;
+    top: 0;
+    right: 10px;
+    z-index: 4;
+}
 /* 
 .teste, .stop, .play {
     z-index: 1;

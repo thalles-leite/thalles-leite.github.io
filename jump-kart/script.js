@@ -10,13 +10,12 @@ const botaoPlay = document.getElementById('play');
 const localRespawn = document.getElementById('respawn');
 const tamanhoTela = window.innerWidth;
 const alturaTela = window.innerHeight;
-const velocidade = 1.5;
 const campoScore = document.getElementById('score');
 const campoPlayer = document.getElementById('jogador');
 const bestScore = document.getElementById('bestScore');
 const botaoSom = document.getElementById('sound');
 const mesmoPlayer = false;
-
+const sectionVelocidade = document.getElementById('velocidade')
 let info = [];
 let nomeInput = '';
 let Pname = 'Visitante';
@@ -26,9 +25,17 @@ let obstaculoInterval = '';
 let moverIntervalo = '';
 let pontuacaoInterval = '';
 let verificaIntervalo = '';
+let verificaVelocidade = '';
 let frequencia = 1000;
+let velocidade = 1.5;
 let preOponentes = ['imagens/each/op2.png', 'imagens/each/op3.png', 'imagens/each/op4.png', 'imagens/each/op5.png', 'imagens/each/op6.png', 'imagens/each/op7.png', 'imagens/each/op8.png', 'imagens/each/op9.png', 'imagens/each/op10.png', 'imagens/each/op11.png', 'imagens/each/op12.png', 'imagens/each/op13.png', 'imagens/each/op14.png', 'imagens/each/op15.png']
 let oponentes = [];
+
+const aumentarVelocidade = () => {
+    velocidade += 0.1
+    sectionVelocidade.innerText = velocidade.toFixed(1)
+
+}
 
 const iconeMusic = () => {
     const som = document.createElement('i');
@@ -351,6 +358,7 @@ const pararTudo = () => {
     pararObstaculo();
     clearInterval(obstaculoInterval);
     clearInterval(verificaIntervalo);
+    clearInterval(verificaVelocidade);
     clearInterval(moverIntervalo)
     player.style.animationPlayState = 'paused';
     estado = 'stop';
@@ -440,13 +448,14 @@ const start = () => {
     player.style.left = '10vw';
 
     verificaIntervalo = setInterval(verificaColisao, 10);
+    verificaVelocidade = setInterval(aumentarVelocidade, 5000)
 }
 
 const obstaculoAleatorio = () => {
     if (estado !== 'run') {
         obstaculoInterval = setInterval(() => {
             criarObstaculo();
-        }, Math.random() * frequencia + 2000);
+        }, Math.random() * frequencia + 1500);
         estado = 'run';
     }
 }
