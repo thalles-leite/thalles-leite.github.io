@@ -246,7 +246,9 @@ document.addEventListener('keydown', (element) => {
 })
 
 document.addEventListener('touchstart', () => {
-    pular();
+    if (estado === 'run') {
+        pular();
+    }
 })
 
 const moveChao = () => {
