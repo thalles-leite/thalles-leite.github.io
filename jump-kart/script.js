@@ -371,7 +371,6 @@ const pararTudo = () => {
     clearInterval(verificaVelocidade);
     clearInterval(moverIntervalo)
     player.style.animationPlayState = 'paused';
-    player.style.backgroundImage = 'url(imagens/mario2.gif)'
     estado = 'stop';
     clearInterval(pontuacaoInterval);
     const resultado = info.filter(objeto => objeto.nome === Pname)

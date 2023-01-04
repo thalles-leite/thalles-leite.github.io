@@ -1,6 +1,5 @@
 :root {
     --alturaObstaculo: 90px;
-    --backgroundPlayer: url(imagens/mario0.gif)
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -36,7 +35,7 @@ body {
 
 .player {
     border: 1px red dashed;
-    background-image: var(--backgroundPlayer);
+    background-image: url(imagens/oldman2.png);
     background-size: contain;
     background-repeat: no-repeat;
     height: 140px;
@@ -237,22 +236,20 @@ body {
 @keyframes pular {
     0% {
       transform: translateY(0);
-      background-image: url(imagens/mario2.gif);
+      
     }
     40% {
       transform: translateY(calc(var(--alturaObstaculo)*-2.8));
-      background-image: url(imagens/mario2.gif);
+      
     }
     90% {
         transform: translateY(calc(var(--alturaObstaculo)*-0.9));
-        background-image: url(imagens/mario2.gif);  
+      
     }
-    99% {
-        background-image: url(imagens/mario2.gif);
-    }
+   
     100% {
       transform: translateY(0);
-      background-image: url(imagens/mario.gif);
+   
     }
   }
 
