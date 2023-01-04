@@ -303,9 +303,9 @@ document.addEventListener('touchstart', () => {
 })
 
 const moveChao = () => {
-    chao.style.animation = 'moverObj 5s linear infinite';
-    audioCorrida.play();
-    audioCorrida.loop = true;
+    // chao.style.animation = `moverObj ${tamanhoTela / 200 * velocidade}s linear infinite`;
+    // audioCorrida.play();
+    // audioCorrida.loop = true;
 
 }
 
@@ -355,6 +355,10 @@ const pular = () => {
 const moverObstaculo = (obstaculo) => {
 
     obstaculo.style.left = obstaculo.offsetLeft - 10 + 'px';
+    chao.style.left = chao.offsetLeft - 10 + 'px';
+    if (chao.offsetLeft < -chao.offsetWidth / 2) {
+        chao.style.left = 0;
+    }
     if ((obstaculo.getBoundingClientRect().x < 0)) {
         localRespawn.removeChild(obstaculo);
         somarScore();

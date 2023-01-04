@@ -45,13 +45,14 @@ body {
     z-index: 1;
 }
 .chao {
-    background-image: url(imagens/chao.jpeg);
+    background-image: url(imagens/chao3.png);
     position: absolute;
+    bottom: 0px;
     background-position: bottom;
-    width: 100vw;
-    height: 100vh;
+    width: 200vw;
+    height: 70px;
     background-repeat: repeat-x;
-    
+    background-color: rgb(17, 3, 0);
 }
 
 .obstacle {
