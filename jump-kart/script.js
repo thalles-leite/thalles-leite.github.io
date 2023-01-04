@@ -353,6 +353,8 @@ const pular = () => {
 }
 
 const moverChao = () => {
+    audioCorrida.play();
+    audioCorrida.loop = true;
     chao.style.left = chao.offsetLeft - 10 + 'px';
     if (chao.offsetLeft < -chao.offsetWidth / 2) {
         chao.style.left = 0;
