@@ -17,6 +17,7 @@ const bestScore = document.getElementById('bestScore');
 const botaoSom = document.getElementById('sound');
 const mesmoPlayer = false;
 const sectionVelocidade = document.getElementById('velocidade')
+let movimentoChao = '';
 let info = [];
 let nomeInput = '';
 let Pname = 'Visitante';
@@ -351,14 +352,16 @@ const pular = () => {
     };
 }
 
-
-const moverObstaculo = (obstaculo) => {
-
-    obstaculo.style.left = obstaculo.offsetLeft - 10 + 'px';
+const moverChao = () => {
     chao.style.left = chao.offsetLeft - 10 + 'px';
     if (chao.offsetLeft < -chao.offsetWidth / 2) {
         chao.style.left = 0;
     }
+}
+const moverObstaculo = (obstaculo) => {
+
+    obstaculo.style.left = obstaculo.offsetLeft - 10 + 'px';
+
     if ((obstaculo.getBoundingClientRect().x < 0)) {
         localRespawn.removeChild(obstaculo);
         somarScore();
@@ -408,6 +411,7 @@ const pararTudo = () => {
     clearInterval(verificaIntervalo);
     clearInterval(verificaVelocidade);
     clearInterval(moverIntervalo)
+    clearInterval(movimentoChao);
     player.style.animationPlayState = 'paused';
     estado = 'stop';
     clearInterval(pontuacaoInterval);
@@ -479,6 +483,9 @@ const verificaColisao = () => {
 
 
 const start = () => {
+    movimentoChao = setInterval(() => {
+        moverChao();
+    }, (Math.round(tamanhoTela / (25 * (velocidade)))));
 
     if (document.getElementById('nomePlayer')) {
         nomeInput = document.getElementById('nomePlayer').value;
@@ -488,7 +495,7 @@ const start = () => {
     campoPlayer.innerText = `${Pname} :`;
     campoScore.innerHTML = 0;
     const obstaculos = document.getElementsByClassName('obstacle');
-    moveChao();
+    // moveChao();
     obstaculoAleatorio();
     localRespawn.innerHTML = '';
     player.style.animation = '';
