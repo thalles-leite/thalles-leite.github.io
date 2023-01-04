@@ -109,9 +109,12 @@ body {
     background-color: rgba(102, 51, 153, 0.137);
 }
 .popUp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto;
     position: absolute;
-    top: 30vh;
+    top: 16vh;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 20px;
@@ -232,6 +235,25 @@ body {
     border: 1px solid black;
     border-radius: 50px;
     font-weight: 900;
+}
+
+.selectPlayer{
+    
+    width: fit-content;
+    min-height: 20px;
+    display: flex;
+    
+}
+
+.boxPlayer{
+    width:13vw;
+    height: 9vw;
+    margin: 5px;
+}
+
+.selected {
+    background-color: rgba(0, 0, 0, 0.062);
+    outline: 2px solid green;
 }
 @keyframes pular {
     0% {

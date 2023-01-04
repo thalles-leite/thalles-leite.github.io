@@ -30,6 +30,7 @@ let verificaVelocidade = '';
 let frequencia = 1000;
 let velocidade = 1.7;
 let preOponentes = ['imagens/each/op2.png', 'imagens/each/op3.png', 'imagens/each/op4.png', 'imagens/each/op5.png', 'imagens/each/op6.png', 'imagens/each/op7.png', 'imagens/each/op8.png', 'imagens/each/op9.png', 'imagens/each/op10.png', 'imagens/each/op11.png', 'imagens/each/op12.png', 'imagens/each/op13.png', 'imagens/each/op14.png', 'imagens/each/op15.png']
+let players = ['imagens/players/p1.png', 'imagens/players/p2.png', 'imagens/players/p3.png', 'imagens/players/p4.png']
 let oponentes = [];
 
 
@@ -109,24 +110,55 @@ const mensagemInicio = () => {
     nome.placeholder = 'Digite seu nome';
     nome.style.border = '1px solid black'
     nome.style.borderRadius = '50px'
+    nome.style.maxWidth = '30vw'
     nome.id = 'nomePlayer';
     const botaoStart = document.createElement('button');
     botaoStart.innerText = 'Começar';
-    botaoStart.style.marginTop = '10px';
+    botaoStart.style.margin = '15px';
     botaoStart.style.padding = '8px';
     botaoStart.style.border = '1px solid black';
     botaoStart.style.borderRadius = '50px';
     botaoStart.style.fontWeight = 900;
+    botaoStart.style.width = '20vw'
     botaoStart.addEventListener('click', () => {
 
         start();
     })
 
     titulo.innerText = "Pressione Enter para começar!"
+
+    const contSelectPlayer = document.createElement('section')
+    contSelectPlayer.className = 'selectPlayer';
+
+    players.forEach((elemento, indice) => {
+        const boxPlayer = document.createElement('section');
+        boxPlayer.className = 'boxPlayer';
+        boxPlayer.style.backgroundImage = `url(${elemento})`;
+        boxPlayer.style.backgroundSize = 'cover';
+        boxPlayer.style.cursor = 'pointer';
+        if (indice === 0) {
+            boxPlayer.classList.add('selected');
+            player.style.backgroundImage = `url(${elemento})`;
+        }
+        boxPlayer.addEventListener('click', (element) => {
+            const allBoxes = document.getElementsByClassName('boxPlayer');
+            Object.values(allBoxes).forEach((element) => {
+                element.className = 'boxPlayer'
+            })
+            if (!element.target.classList.contains('selected')) {
+                element.target.classList.add('selected')
+                player.style.backgroundImage = `url(${elemento})`;
+            }
+        })
+
+        contSelectPlayer.appendChild(boxPlayer)
+
+    })
+    contSelectPlayer.id = 'selectPlayer'
     container.appendChild(nome);
-    container.appendChild(titulo);
+    container.appendChild(contSelectPlayer)
     container.appendChild(botaoStart)
-    console.log(container)
+    container.appendChild(titulo);
     return container;
 }
 const criarPopUp = () => {
@@ -168,6 +200,10 @@ const mensagemGameOver = () => {
     botaoNovo.className = 'btnG'
     botaoNovo.addEventListener('click', () => {
         removerPopUp();
+        localRespawn.innerHTML = '';
+        player.style.animation = '';
+        player.style.bottom = '69px';
+        player.style.left = '10vw';
         exibirPopUp(mensagemInicio());
     })
 
@@ -217,9 +253,7 @@ const mensagemGameOver = () => {
 }
 
 const exibirPopUp = (elemento) => {
-
     elemento.style.display = 'flex';
-    console.log(elemento);
     pagina.appendChild(elemento)
 }
 const removerPopUp = () => {
@@ -456,7 +490,6 @@ const start = () => {
     player.style.animation = '';
     player.style.bottom = '69px';
     player.style.left = '10vw';
-    player.style.backgroundImage = "url(imagens/mario.gif)"
     sectionVelocidade.innerText = velocidade.toFixed(1);
     verificaIntervalo = setInterval(verificaColisao, 10);
     verificaVelocidade = setInterval(aumentarVelocidade, 10000)
