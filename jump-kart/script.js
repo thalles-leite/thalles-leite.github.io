@@ -360,6 +360,7 @@ const moverChao = () => {
         chao.style.left = 0;
     }
 }
+
 const moverObstaculo = (obstaculo) => {
 
     obstaculo.style.left = obstaculo.offsetLeft - 10 + 'px';
@@ -367,7 +368,6 @@ const moverObstaculo = (obstaculo) => {
     if ((obstaculo.getBoundingClientRect().x < 0)) {
         localRespawn.removeChild(obstaculo);
         somarScore();
-
     }
 
 }
