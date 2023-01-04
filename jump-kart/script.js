@@ -10,7 +10,7 @@ const botaoPlay = document.getElementById('play');
 const localRespawn = document.getElementById('respawn');
 const tamanhoTela = window.innerWidth;
 const alturaTela = window.innerHeight;
-const velocidade = 3;
+const velocidade = 2;
 const campoScore = document.getElementById('score');
 const campoPlayer = document.getElementById('jogador');
 const bestScore = document.getElementById('bestScore');
@@ -119,6 +119,7 @@ const mensagemInicio = () => {
 }
 
 const mensagemGameOver = () => {
+    removerPopUp();
     const cont = document.getElementById('containerMsg');
     const mensagem = document.createElement('section');
     mensagem.className = 'mensagem';
@@ -195,6 +196,7 @@ const mensagemGameOver = () => {
 
 const exibirPopUp = (elemento) => {
     const campoMsg = document.getElementById('containerMsg');
+
     campoPopUp.style.display = 'flex';
     // console.log(elemento)
     campoPopUp.appendChild(elemento)
