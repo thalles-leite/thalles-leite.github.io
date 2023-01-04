@@ -212,9 +212,9 @@ const mensagemGameOver = () => {
     h2GameOver.appendChild(spanGameOver);
     mensagem.appendChild(h2GameOver)
     mensagem.appendChild(h3Pontuacao)
-    mensagem.appendChild(h5Press)
 
     mensagem.appendChild(contBotoes)
+    mensagem.appendChild(h5Press)
     // console.log(cont)
     cont.appendChild(mensagem);
 
@@ -268,7 +268,7 @@ const removerPopUp = () => {
 document.addEventListener('keydown', (element) => {
     const tecla = element.key;
     console.log(estado)
-    if (estado === 'run') {
+    if (estado === 'run' || tecla === 'Enter') {
         switch (tecla) {
             case 'ArrowRight':
                 moveDireita();
