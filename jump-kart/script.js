@@ -456,6 +456,7 @@ const start = () => {
     player.style.animation = '';
     player.style.bottom = '69px';
     player.style.left = '10vw';
+    player.style.backgroundImage = "url(imagens/mario.gif)"
     sectionVelocidade.innerText = velocidade.toFixed(1);
     verificaIntervalo = setInterval(verificaColisao, 10);
     verificaVelocidade = setInterval(aumentarVelocidade, 10000)
