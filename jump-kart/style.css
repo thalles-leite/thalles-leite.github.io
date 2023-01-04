@@ -35,7 +35,6 @@ body {
 }
 
 .player {
-    border: 1px solid red;
     background-image: var(--backgroundPlayer);
     background-size: contain;
     background-repeat: no-repeat;
