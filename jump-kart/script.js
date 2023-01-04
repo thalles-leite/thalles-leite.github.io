@@ -108,6 +108,7 @@ const mensagemInicio = () => {
     botaoStart.style.borderRadius = '50px';
     botaoStart.style.fontWeight = 900;
     botaoStart.addEventListener('click', () => {
+        removerPopUp();
         start();
     })
 
@@ -120,7 +121,7 @@ const mensagemInicio = () => {
 
 const mensagemGameOver = () => {
     removerPopUp();
-    const cont = document.getElementById('containerMsg');
+    const cont = document.getElementById('popUp');
     const mensagem = document.createElement('section');
     mensagem.className = 'mensagem';
     const h2GameOver = document.createElement('h2');
@@ -202,11 +203,13 @@ const exibirPopUp = (elemento) => {
     campoPopUp.appendChild(elemento)
 }
 const removerPopUp = () => {
-    const campoMsg = document.getElementById('containerMsg');
-    const msgInicio = document.getElementById('msgInicio');
-    msgInicio.innerHTML = '';
-    campoMsg.innerHTML = '';
+    // const campoMsg = document.getElementById('containerMsg');
+    // const msgInicio = document.getElementById('msgInicio');
+    // console.log(msgInicio);
+    // msgInicio.innerHTML = '';
+    // campoMsg.innerHTML = '';
     campoPopUp.style.display = 'none';
+    campoPopUp.innerHTML = '';
 }
 
 
