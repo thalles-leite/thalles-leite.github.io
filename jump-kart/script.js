@@ -24,13 +24,21 @@ let moverIntervalo = '';
 let pontuacaoInterval = '';
 let verificaIntervalo = '';
 let frequencia = 1000;
-let oponentes = ['op2.png', 'op3.png', 'op4.png', 'op5.png', 'op6.png', 'op7.png', 'op8.png', 'op9.png', 'op10.png', 'op11.png', 'op12.png', 'op13.png', 'op14.png', 'op15.png']
+let preOponentes = ['imagens/each/op2.png', 'imagens/each/op3.png', 'imagens/each/op4.png', 'imagens/each/op5.png', 'imagens/each/op6.png', 'imagens/each/op7.png', 'imagens/each/op8.png', 'imagens/each/op9.png', 'imagens/each/op10.png', 'imagens/each/op11.png', 'imagens/each/op12.png', 'imagens/each/op13.png', 'imagens/each/op14.png', 'imagens/each/op15.png']
+let oponentes = [];
+
+preOponentes.forEach((imagemPath) => {
+    const imagem = new Image();
+    imagem.src = imagemPath;
+    oponentes.push(imagem);
+})
+
 player.style.marginLeft = 0;
 player.style.marginBottom = 0;
 
 chao.style.backgroundPositionX = 0;
 
-// bestScore.innerText = `${info[0].nome} - ${info[0].pontos} pts`;
+window.onload
 
 const fInfoLocal = () => {
     const infoLocal = localStorage.getItem('info');
@@ -267,7 +275,7 @@ const criarObstaculo = () => {
         const obstaculo = document.createElement('span')
         oponenteAleatorio = oponentes[Math.floor(Math.random() * oponentes.length)]
         console.log(oponenteAleatorio);
-        obstaculo.style.backgroundImage = `url(imagens/each/${oponenteAleatorio})`;
+        obstaculo.appendChild(oponenteAleatorio);
         obstaculo.className = 'obstacle'
         localRespawn.appendChild(obstaculo);
         moverIntervalo = setInterval(() => {

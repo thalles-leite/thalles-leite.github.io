@@ -55,7 +55,6 @@ body {
 }
 
 .obstacle {
-    background-image: url(imagens/each/op14.png);
     background-size: contain;
     background-repeat: no-repeat;
     right: -100px;
@@ -64,6 +63,11 @@ body {
     position: absolute;
     bottom: 69px;
     z-index: 2;
+}
+
+.obstacle img {
+    width: 100px;
+    height: var(--alturaObstaculo);
 }
 /* 
 .teste, .stop, .play {
