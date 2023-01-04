@@ -77,11 +77,11 @@ const fInfoLocal = () => {
         locTrof.appendChild(trof);
     }
 }
-const iniciarScore = () => {
-    pontuacaoInterval = setInterval(() => {
-        score += 1;
-        campoScore.innerText = score;
-    }, 1000);
+const somarScore = () => {
+
+    score += 1;
+    campoScore.innerText = score;
+
 }
 
 
@@ -287,6 +287,8 @@ const moverObstaculo = (obstaculo) => {
     obstaculo.style.left = obstaculo.offsetLeft - 10 + 'px';
     if ((obstaculo.getBoundingClientRect().x < 0)) {
         localRespawn.removeChild(obstaculo);
+        somarScore();
+
     }
 
 }
@@ -402,10 +404,8 @@ const start = () => {
     }
     nomeInput.trim() !== '' && (Pname = nomeInput);
     removerPopUp();
-    score = 0;
     campoPlayer.innerText = `${Pname} :`;
     campoScore.innerHTML = 0;
-    iniciarScore();
     const obstaculos = document.getElementsByClassName('obstacle');
     moveChao();
     obstaculoAleatorio();
