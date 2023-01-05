@@ -39,7 +39,7 @@ if (window.devicePixelRatio > 1) {
     console.log('celular');
 }
 else {
-    velocidadeInicial = 2.5;
+    velocidadeInicial = 5;
     console.log('computador')
 }
 let velocidade = velocidadeInicial;
