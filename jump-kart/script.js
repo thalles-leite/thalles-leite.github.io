@@ -29,7 +29,8 @@ let pontuacaoInterval = '';
 let verificaIntervalo = '';
 let verificaVelocidade = '';
 let frequencia = 1000;
-let velocidade = 1.2;
+let velocidadeInicial = 1.2;
+let velocidade = velocidadeInicial;
 let preOponentes = ['imagens/each/op2.png', 'imagens/each/op3.png', 'imagens/each/op4.png', 'imagens/each/op5.png', 'imagens/each/op6.png', 'imagens/each/op7.png', 'imagens/each/op8.png', 'imagens/each/op9.png', 'imagens/each/op10.png', 'imagens/each/op11.png', 'imagens/each/op12.png', 'imagens/each/op13.png', 'imagens/each/op14.png', 'imagens/each/op15.png']
 let players = ['imagens/players/p1.png', 'imagens/players/p2.png', 'imagens/players/p3.png', 'imagens/players/p4.png']
 let oponentes = [];
@@ -485,6 +486,7 @@ const verificaColisao = () => {
 
 
 const start = () => {
+    velocidade = velocidadeInicial;
     movimentoChao = setInterval(() => {
         moverChao();
     }, (Math.round(tamanhoTela / (25 * (velocidade)))));
