@@ -29,11 +29,20 @@ let pontuacaoInterval = '';
 let verificaIntervalo = '';
 let verificaVelocidade = '';
 let frequencia = 1000;
-let velocidadeInicial = 1.2;
-let velocidade = velocidadeInicial;
 let preOponentes = ['imagens/each/op2.png', 'imagens/each/op3.png', 'imagens/each/op4.png', 'imagens/each/op5.png', 'imagens/each/op6.png', 'imagens/each/op7.png', 'imagens/each/op8.png', 'imagens/each/op9.png', 'imagens/each/op10.png', 'imagens/each/op11.png', 'imagens/each/op12.png', 'imagens/each/op13.png', 'imagens/each/op14.png', 'imagens/each/op15.png']
 let players = ['imagens/players/p1.png', 'imagens/players/p2.png', 'imagens/players/p3.png', 'imagens/players/p4.png']
 let oponentes = [];
+let velocidadeInicial = '';
+
+if (window.devicePixelRatio > 1) {
+    velocidadeInicial = 1.2;
+    console.log('celular');
+}
+else {
+    velocidadeInicial = 2.5;
+    console.log('computador')
+}
+let velocidade = velocidadeInicial;
 
 
 
