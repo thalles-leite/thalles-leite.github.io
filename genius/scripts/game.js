@@ -1,5 +1,5 @@
 const campoPlayer = document.getElementById('playerName');
-const campoRecordScore = document.getElementById('recordScore');
+const campoScore = document.getElementById('score');
 const campoRecordName = document.getElementById('recordName');
 const campoLevel = document.getElementById('h1Level');
 const campoInfoRecord = document.getElementById('infoRecord');
