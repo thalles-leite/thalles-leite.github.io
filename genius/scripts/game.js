@@ -30,8 +30,13 @@ const checkLocalData = () => {
   const recordNameLocal = localStorage.getItem('recordName');
   const recordScoreLocal = localStorage.getItem('recordScore');
   if (player) playerName = player;
-  if (recordNameLocal) recordName = recordNameLocal;
   if (recordScoreLocal) recordScore = recordScoreLocal;
+  if (recordNameLocal) {
+    if (recordNameLocal !== undefined) {
+      recordName = recordNameLocal;
+    }
+  }
+
 };
 
 checkLocalData();
@@ -191,7 +196,7 @@ const start = () => {
 };
 
 verificarPlayer = () => {
-  if (playerName !== null) {
+  if (playerName !== undefined) {
     campoPlayer.innerText = `${playerName} :`;
     campoScore.innerText = `${score} pts`;
   } else {
