@@ -1,8 +1,8 @@
 const campoPlayer = document.getElementById('playerName');
-const campoScore = document.getElementById('score');
 const campoRecordScore = document.getElementById('recordScore');
 const campoRecordName = document.getElementById('recordName');
 const campoLevel = document.getElementById('h1Level');
+const campoInfoRecord = document.getElementById('infoRecord');
 const gameGenius = document.getElementsByClassName('part');
 const gCenter = document.querySelector('#gCenter');
 let playerName;
@@ -206,8 +206,11 @@ verificarPlayer = () => {
 
 const atualizaRecord = () => {
   if (recordScore > 0) {
-    campoRecordName.innerText = `Record: ${recordName} `;
-    campoRecordScore.innerText = `${recordScore} pts`;
+    const imgTrofeu = document.createElement('img');
+    imgTrofeu.setAttribute('src', '../images/trofeu.png');
+    imgTrofeu.className = 'imgTrofeu';
+    campoInfoRecord.prepend(imgTrofeu);
+    campoRecordName.innerText = `${recordName}: ${recordScore} pts`;
   }
 };
 const levelUpdate = () => {

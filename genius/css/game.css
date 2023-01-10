@@ -23,6 +23,9 @@ body {
     border-radius: 20px;
     padding: 10px 23px;
 }
+.infoRecord{
+    display: flex;
+}
 .game{
     aspect-ratio: 1/1;
     margin: 0 auto;
@@ -103,7 +106,10 @@ body {
     background-color: rgb(255, 255, 255);
     cursor: pointer;
 }
-
+.imgTrofeu {
+    width: 15px;
+    margin-right: 10px;
+}
 @keyframes blink {
     0% {
         filter: opacity(1);
