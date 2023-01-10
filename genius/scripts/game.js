@@ -2,6 +2,7 @@ const campoPlayer = document.getElementById('playerName');
 const campoScore = document.getElementById('score');
 const campoRecordScore = document.getElementById('recordScore');
 const campoRecordName = document.getElementById('recordName');
+const campoLevel = document.getElementById('h1Level');
 const gameGenius = document.getElementsByClassName('part');
 const gCenter = document.querySelector('#gCenter');
 let playerName;
@@ -15,6 +16,13 @@ let recordName = '';
 let recordScore = 0;
 const phrases = ['Boa!', 'Isso ai!', 'Joga bem!', 'Acertou!', 'Parabéns!'];
 document.addEventListener('contextmenu', (event) => event.preventDefault());
+
+const loadSounds = () => {
+  const audio1 = new Audio(`../sons/s1.wav`);
+  const audio2 = new Audio(`../sons/s2.wav`);
+  const audio3 = new Audio(`../sons/s3.wav`);
+  const audio4 = new Audio(`../sons/s4.wav`);
+}
 
 const checkLocalData = () => {
   const player = JSON.parse(localStorage.getItem('playerName'));
@@ -172,6 +180,7 @@ disableGcenter = () => {
 };
 const start = () => {
   lvl += 1;
+  levelUpdate();
   disableGcenter();
   alteraTextoBotao('');
   stopBlinkColor();
@@ -188,12 +197,16 @@ verificarPlayer = () => {
 };
 
 const atualizaRecord = () => {
-  console.log(recordScore);
   if (recordScore > 0) {
     campoRecordName.innerText = `Record: ${recordName} `;
     campoRecordScore.innerText = `${recordScore} pts`;
   }
 };
+const levelUpdate = () => {
+  if (lvl > 0) {
+    campoLevel.innerText = `Level: ${lvl}`;
+  }
+}
 
 const loadGame = () => {
   generatedArray = [];
