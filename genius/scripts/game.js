@@ -18,11 +18,12 @@ const phrases = ['Boa!', 'Isso ai!', 'Joga bem!', 'Acertou!', 'Parabéns!'];
 document.addEventListener('contextmenu', (event) => event.preventDefault());
 
 const loadSounds = () => {
-  const audio1 = new Audio(`../sons/s1.wav`);
-  const audio2 = new Audio(`../sons/s2.wav`);
-  const audio3 = new Audio(`../sons/s3.wav`);
-  const audio4 = new Audio(`../sons/s4.wav`);
+  const audio1 = new Audio(`../sons/1.wav`);
+  const audio2 = new Audio(`../sons/2.wav`);
+  const audio3 = new Audio(`../sons/3.wav`);
+  const audio4 = new Audio(`../sons/4.wav`);
 }
+
 
 const checkLocalData = () => {
   const player = JSON.parse(localStorage.getItem('playerName'));
@@ -223,7 +224,7 @@ const loadGame = () => {
   disableSound();
   gCenter.addEventListener('click', start);
 };
-
+loadSounds();
 loadGame();
 
 
