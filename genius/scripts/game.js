@@ -3,8 +3,10 @@ const campoScore = document.getElementById('score');
 const campoRecordName = document.getElementById('recordName');
 const campoLevel = document.getElementById('h1Level');
 const campoInfoRecord = document.getElementById('infoRecord');
+const bEasy = document.getElementById('easy');
 const gameGenius = document.getElementsByClassName('part');
 const gCenter = document.querySelector('#gCenter');
+const backGround = document.querySelector('.backGround');
 let playerName;
 let lvl = 0;
 let stage = [];
@@ -94,6 +96,7 @@ const compareKey = (arg) => {
     if (Number(arg[1]) === stage[indexCompare]) {
       indexCompare += 1;
       updateScore(1);
+
     } else {
       disableSound();
       erro = true;
@@ -142,6 +145,9 @@ const arrayGenerator = () => {
   const newPosition = Math.floor(Math.random() * 4) + 1
   generatedArray.push(newPosition);
   console.log(newPosition)
+  const elemento = document.getElementById(`s${newPosition}`);
+  const cor = window.getComputedStyle(elemento).backgroundColor;
+  insertSquare(cor);
   return (generatedArray);
 };
 
@@ -219,6 +225,19 @@ const levelUpdate = () => {
   }
 }
 
+const insertSquare = (cor) => {
+  const colorSquare = document.createElement('div');
+  colorSquare.className = 'colorSquare';
+  colorSquare.style.backgroundColor = `${cor}`;
+  backGround.appendChild(colorSquare);
+}
+
+const easyMode = () => {
+  bEasy.addEventListener('click', () => {
+    backGround.classList.toggle('visible')
+  })
+}
+
 const loadGame = () => {
   generatedArray = [];
   score = 0;
@@ -233,8 +252,7 @@ const loadGame = () => {
   blinkColor();
   disableSound();
   gCenter.addEventListener('click', start);
+  easyMode();
 };
 loadSounds();
 loadGame();
-
-
