@@ -138,7 +138,7 @@ const blink = (arg) => {
   setTimeout(() => {
     elemento.style.filter = '';
     gCenter.style.backgroundColor = 'white';
-  }, 1000);
+  }, 500);
 };
 
 const playersTurn = () => {
@@ -161,7 +161,7 @@ const soundPlay = (index = 0, size) => {
     blink(`s${stage[index]}`);
     tocarAudio(stage[index]);
     soundPlay(index + 1);
-  }, 500);
+  }, 1000);
 };
 
 const alteraTextoBotao = (arg) => {
