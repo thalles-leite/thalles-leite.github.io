@@ -134,7 +134,9 @@ const disableSound = () => {
 };
 
 const arrayGenerator = () => {
-  generatedArray.push(Math.floor(Math.random() * 4) + 1);
+  const newPosition = Math.floor(Math.random() * 4) + 1
+  generatedArray.push(newPosition);
+  console.log(newPosition)
   return (generatedArray);
 };
 
