@@ -3,6 +3,7 @@ const campoScore = document.getElementById('score');
 const campoRecordName = document.getElementById('recordName');
 const campoLevel = document.getElementById('h1Level');
 const campoInfoRecord = document.getElementById('infoRecord');
+const campoTrofeu = document.querySelector('.trofeu');
 const bEasy = document.getElementById('easy');
 const gameGenius = document.getElementsByClassName('part');
 const gCenter = document.querySelector('#gCenter');
@@ -211,13 +212,12 @@ verificarPlayer = () => {
 };
 
 const atualizaRecord = () => {
-  if (recordScore > 0) {
-    const imgTrofeu = document.createElement('img');
-    imgTrofeu.setAttribute('src', '../images/trofeu.png');
-    imgTrofeu.className = 'imgTrofeu';
-    campoInfoRecord.prepend(imgTrofeu);
+  if (recordName !== '') {
+    campoTrofeu.style.display = 'block';
     campoRecordName.innerText = `${recordName}: ${recordScore} pts`;
   }
+
+
 };
 const levelUpdate = () => {
   if (lvl > 0) {
