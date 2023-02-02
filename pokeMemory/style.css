@@ -19,7 +19,7 @@ li {
 }
 
 body{
-    background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(130, 122, 2) 50%, rgb(0, 0, 0) 100%);
+    /* background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(130, 122, 2) 50%, rgb(0, 0, 0) 100%); */
     display: flex;
     justify-content: center;
     align-items: center;
