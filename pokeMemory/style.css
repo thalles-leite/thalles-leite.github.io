@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
+}
+
+* ::-webkit-scrollbar{
+    background: rgba(225, 126, 7, 0.781);
+    width: 5px;
+}
+*::-webkit-scrollbar-thumb {
+    background: rgb(255, 255, 255);
+    height: 4px;
+}
+li {
+    list-style-position: inside;
+}
+
+body{
+    /* background: linear-gradient(0deg, rgba(254,255,0,1) 0%, rgba(255,222,0,1) 22%, rgba(255,59,0,1) 100%); */
+    background-color: black;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} 
+
+.gameContent {
+    width: 100%;
+    display: flex;
+}
+
+main {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 70%;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background-color: rgba(6, 1, 57, 0.858);
+    box-shadow: 1px 1px 5px 0px rgb(255, 255, 255);    
+}
+
+.leftData {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 98%;
+    box-shadow: 0px 0px 10px 1px black;
+    margin: 1%;
+}
+
+.rightData{
+    background-color: rgba(255, 255, 255, 0.342);
+    height: 40%;
+    
+    color: rgb(255, 255, 255);
+    overflow: auto;
+    
+}
+
+.olRighData{
+    overflow-y: scroll;
+    max-height: 84%;
+}
+.rightData li {
+    background-color: rgba(165, 42, 42, 0.39);
+    padding: 5%;
+    text-align: center;
+    margin-bottom: 1%;
+    font-size: 0.6em;
+    
+}
+.stars {
+    background-color: rgba(255, 255, 255, 0.342) ;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 2%;
+}
+.starIcons{
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.star{
+    aspect-ratio: 1/1;
+    width: 20%;
+    background-image: url(./files/images/star.svg);
+    background-size: cover;
+}
+.starDisabled {
+    filter: opacity(0.1);
+}
+.name{
+    margin: 2vh;
+    font-size: 1em;
+    text-align: center;
+    color: white;
+    text-shadow: 3px 3px 2px black;
+}
+
+.timer {
+    background-color:rgba(255, 255, 255, 0.342)  ;
+    text-shadow: 3px 3px 2px black;
+    padding: 5%;
+    font-size: 1.5em;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+.cardBoard{
+    
+    padding: 5%;
+    flex: 2;
+    display: flex;
+    justify-content: center;;
+    align-items: center;    
+    overflow: auto;
+    
+}
+.cards { 
+    aspect-ratio: 1/1;
+    height:100%;
+    display: grid;
+    align-items: center;    
+    overflow: visible;
+    }
+
+.card { 
+    aspect-ratio: 1/1;
+    box-shadow: 0px 0px 10px rgb(22, 22, 22);
+    position: relative;
+    transition: all 500ms ease;
+    transform-style: preserve-3d;
+    box-shadow: 0px 5px 5px black;
+    margin: 2%;
+    
+}
+
+.rotate{
+    transform: rotateY(180deg);
+}
+
+.correct {
+    filter: grayscale(1) blur(2px);
+    background-color: rebeccapurple;
+}
+.side {
+    
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url(./files/images/sideCard.png);
+    background-size: contain;
+    background-position: center;
+}
+.frontCard {
+    outline: 1px solid black;
+    background-color: rgb(250, 246, 246);
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation: myanimation 10s infinite;
+    
+}
+
+.backCard {
+    backface-visibility: hidden;
+}
+
+.blueLight{
+    position: absolute;
+    aspect-ratio: 1/1;
+    background-color: rgb(0, 62, 73);
+    width: 2%;
+    right: 2%;
+    bottom: 9.5%;
+    border-radius: 500px;
+    filter: opacity(0.6);
+}
+
+.level{
+    
+    font-size: 1.5em;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-shadow: 3px 3px 2px black;
+}
+
+.qtdStars {
+    text-align: center;
+    color: white;
+    margin-bottom: 3%;
+    font-size: 1em;
+    text-shadow: 3px 3px 2px black;
+    
+}
+.missing{
+    color: rgb(248, 244, 8);
+    font-size: 1.1em;
+}
+.nextLevel {
+    color: rgb(49, 248, 10);
+    font-size: 1.1em;
+}
+.missingStars{
+    width: 99%;
+    text-align: center;
+    color: white;
+    padding: 1%;
+    margin: 0.5%;
+    font-size: 1.3em;
+    text-shadow:1px 1px 1px black;
+    background-color:rgba(255, 255, 255, 0.342)  ;
+}
+
+.topTitle{
+text-align: center;
+padding: 2%;
+margin:4%;
+text-shadow: 0px 0px 2px black;
+font-size: 0.9em;
+}
+
+.modal{
+    position: absolute;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.726);
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    
+}
+.containerMsg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 16/9;
+    margin:0 auto;
+    width: 100%;
+    max-width: 380px;
+    height: 100%;
+    max-height: 200px;
+    align-self: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 20px;
+    border: 3px solid rgb(157, 86, 0);
+}
+
+.playerData{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+.btNewPlayer{
+    height: fit-content;
+    padding: 5px;
+    font-size: 0.5em;
+}
+.displayNone {
+    display: none;
+}
+
+@keyframes myanimation {
+    0% {
+      background-color: rgb(157, 155, 158);
+    }
+    20% {
+      background-color: rgb(231, 66, 0);
+    }
+    60% {
+        background-color: rgb(0, 180, 180);
+    }
+    80% {
+        background-color: rgb(255, 38, 0);
+      }
+    100% {
+        background-color: rgb(157, 155, 158);
+      }
+  }
+
+  @media only screen and (max-width:768px){
+    main {
+        
+        height: 100%;
+        max-width: 100%;
+    }
+    .gameContent {
+        flex-direction: column;
+    }
+    .gameContent{
+        flex-direction: column;
+        
+        height: 100%;
+    }
+    .cardBoard {
+        
+        /* margin: 10px;
+        margin-top: 10vh; */
+        /* margin-bottom: 10vh; */
+        
+        flex: 3;
+    }
+  
+    .leftData{
+        
+        flex: 1;
+    }
+    .rightData{
+        display: none;
+    }
+    .stars{
+        width: 100%;
+        align-items: center;
+        flex-direction: row;
+
+        position: relative;
+    }
+    .level{
+        flex: 1;
+    }
+    .starIcons {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        justify-content: 
+        space-evenly;
+        margin: unset;
+    }
+
+    .cards {
+        gap: 10px;
+        overflow: hidden;
+    }
+    .card{
+        
+        width: 100%;
+        height: 100%;
+        
+    }
+    .side, .backCard {
+        
+        background-size: 100% 100%;
+    }
+    .frontCard {
+        background-size: contain;
+    }
+   
+
+    .qtdStars{
+        margin: 10px;
+    }
+    .missingStars {
+        font-size: 0.8em;
+        padding: 4%;
+    }
+  }
