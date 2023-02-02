@@ -25,6 +25,7 @@ body{
     align-items: center;
     background-color:black;
     height: 100vh;
+    
 } 
 
 .gameContent {
@@ -201,7 +202,6 @@ main {
     text-align: center;
     color: white;
     bottom: 10px;
-    width: 100%;
     font-size: 1em;
     text-shadow: 3px 3px 2px black;
     
@@ -299,7 +299,6 @@ font-size: 0.9em;
 
   @media only screen and (max-width:768px){
     main {
-        
         height: 100%;
         max-width: 100%;
     }
