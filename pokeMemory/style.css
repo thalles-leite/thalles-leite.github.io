@@ -19,22 +19,22 @@ li {
 }
 
 body{
-    /* background: linear-gradient(0deg, rgba(254,255,0,1) 0%, rgba(255,222,0,1) 22%, rgba(255,59,0,1) 100%); */
-    background-color: black;
-    height: 100vh;
-    overflow: hidden;
+    background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(130, 122, 2) 50%, rgb(0, 0, 0) 100%);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color:black;
+    height: 100vh;
 } 
 
 .gameContent {
+    aspect-ratio: 16/9;
     width: 100%;
     display: flex;
 }
 
 main {
+    
     position: relative;
     display: flex;
     width: 100%;
@@ -48,11 +48,11 @@ main {
 }
 
 .leftData {
+    position: relative;
     flex: 1;
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    justify-content: space-between;
-    height: 98%;
     box-shadow: 0px 0px 10px 1px black;
     margin: 1%;
 }
@@ -60,7 +60,6 @@ main {
 .rightData{
     background-color: rgba(255, 255, 255, 0.342);
     height: 40%;
-    
     color: rgb(255, 255, 255);
     overflow: auto;
     
@@ -110,6 +109,8 @@ main {
 }
 
 .timer {
+   
+    width: 100%;
     background-color:rgba(255, 255, 255, 0.342)  ;
     text-shadow: 3px 3px 2px black;
     padding: 5%;
@@ -196,9 +197,11 @@ main {
 }
 
 .qtdStars {
+    position: absolute;
     text-align: center;
     color: white;
-    margin-bottom: 3%;
+    bottom: 10px;
+    width: 100%;
     font-size: 1em;
     text-shadow: 3px 3px 2px black;
     
@@ -258,9 +261,13 @@ font-size: 0.9em;
 }
 
 .playerData{
-    display: flex;
-    justify-content: space-evenly;
+    position: absolute;
+    top:0;
+    width: 100%;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; 
     
 }
 .btNewPlayer{
@@ -296,9 +303,7 @@ font-size: 0.9em;
         height: 100%;
         max-width: 100%;
     }
-    .gameContent {
-        flex-direction: column;
-    }
+   
     .gameContent{
         flex-direction: column;
         
@@ -321,21 +326,22 @@ font-size: 0.9em;
         display: none;
     }
     .stars{
-        width: 100%;
         align-items: center;
         flex-direction: row;
-
         position: relative;
+    }
+    .playerData{
+        position: relative;
+        margin-bottom: 20px;
     }
     .level{
         flex: 1;
     }
     .starIcons {
         flex: 1;
-        height: 100%;
         display: flex;
-        justify-content: 
-        space-evenly;
+        justify-content: space-evenly;
+        
         margin: unset;
     }
 
@@ -359,7 +365,8 @@ font-size: 0.9em;
    
 
     .qtdStars{
-        margin: 10px;
+        margin: 20px;
+        position: relative;
     }
     .missingStars {
         font-size: 0.8em;

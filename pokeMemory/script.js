@@ -181,6 +181,7 @@ const victoryVerify = () => {
   if (corrects >= cards) {
     playSoundVictory();
     timer.stop();
+
     stars+=starsPoints;
 
     setTimeout(() => {
