@@ -39,29 +39,8 @@ https://github.com/thalles-leite/thalles-leite.github.io/assets/49620303/d39a099
 
 ## :rocket: Rodando localmente
 
-Clone o projeto
-
-```bash
-  git clone https://github.com/thalles-leite/projeto_tryunfo.git
-```
-
-Entre no diretório do projeto
-
-```bash
-  cd projeto_tryunfo
-```
-
-Instale as dependências
-
-```bash
-  npm install
-```
-
-Inicie o servidor
-
-```bash
-  npm run start
-```
+1. Clone o repositório: `git clone https://github.com/seu-usuario/nome-do-repositorio.git`
+2. Abra o arquivo "index.html" no navegador web.
 
 
 ## :test_tube: Rodando os testes
