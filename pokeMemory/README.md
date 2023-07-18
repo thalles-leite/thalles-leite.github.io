@@ -1,69 +1,49 @@
 
-# :black_joker: Projeto Tryunfo
+# 🧩 Projeto PokeMemory
 
-Neste projeto, foi desenvolvido um jogo no estilo Super Trunfo! A aplicação permite criar um baralho personalizado com o tema livre, adicionando e removendo cartas do baralho, e visualizando todas as cartas que foram adicionadas.
+O Pokememory é um jogo da memória com temática Pokémon, onde o objetivo é encontrar os pares de cartas iguais. 
 
 ## :hammer_and_wrench: Funcionalidades
 
-- Criar um baralho com o tema livre.
-- Adicionar e remover cartas do baralho.
-- Visualizar todas as cartas que foram adicionadas ao baralho.
 
+- Jogar o Jogo da Memória com Pokémon:
+  - Inicie o jogo clicando em uma carta para virá-la.
+  - Procure outra carta com o mesmo Pokémon.
+  - Se encontrar o par correto, as cartas permanecerão viradas.
+  - Caso contrário, elas se virarão novamente.
+  - Continue selecionando cartas até encontrar todos os pares correspondentes.
+  - O jogo termina quando todas as cartas estiverem viradas.
+
+- Sistema de Level e Pontuação:
+  - O jogo possui vários níveis de dificuldade, onde o número de cartas aumenta conforme o jogador avança.
+  - O tempo para encontrar os pares é contado e influencia na pontuação final.
+  - Ganhe estrelas por completar cada nível rapidamente e acumule pontos.
 
 ## :clapper: Demonstração
 
-https://github.com/thalles-leite/projeto_tryunfo/assets/49620303/984ae61e-67b0-4223-9b4a-cb61884e6290
+
+https://github.com/thalles-leite/thalles-leite.github.io/assets/49620303/5463c23c-9228-411c-b226-f72095d36cc9
 
 ## :books: Aprendizados
 
-- Leitura do estado de um componente e uso para alterar o que é exibido no navegador.
-- Inicialização de um componente, atribuindo a ele um estado pré-definido.
-- Atualização do estado de um componente.
-- Captura de eventos utilizando a sintaxe do React.
-- Criação de formulários utilizando sintaxe JSX com as tags: input, textarea, select, form, checkbox.
-- Transmissão de informações de componentes filhos para componentes pais via callbacks.
+
+- Manipulação do DOM com JavaScript para criar e interagir com os elementos do jogo.
+- Uso de eventos para detectar cliques e interações do jogador.
+- Implementação de lógica de jogo com sistema de níveis, controle de tempo e pontuação.
+- Estilização e layout responsivo com CSS para criar uma experiência de jogo agradável.
+
 
 
 ## 💻 Stack utilizada
 
-![React](https://img.shields.io/badge/React-16.x-blue?logo=react)
-![API Externa](https://img.shields.io/badge/API%20Externa--orange)
-![Testes](https://img.shields.io/badge/Testes-Unit%C3%A1rios-success)
+![HTML5](https://img.shields.io/badge/HTML5-blue?logo=html5)
+![CSS3](https://img.shields.io/badge/CSS3-orange?logo=css3)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript)
 
 ## :rocket: Rodando localmente
 
-Clone o projeto
-
-```bash
-  git clone https://github.com/thalles-leite/projeto_tryunfo.git
-```
-
-Entre no diretório do projeto
-
-```bash
-  cd projeto_tryunfo
-```
-
-Instale as dependências
-
-```bash
-  npm install
-```
-
-Inicie o servidor
-
-```bash
-  npm run start
-```
-
-
-## :test_tube: Rodando os testes
-
-Para rodar os testes, rode o seguinte comando
-
-```bash
-  npm run test
-```
+1. Clone o repositório: `git clone https://github.com/seu-usuario/nome-do-repositorio.git`
+2. Abra o arquivo "index.html" no navegador web.
 
 
 ## 🔗 Links
